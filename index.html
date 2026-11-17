@@ -1,168 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kinetixis – Brand deals for creators</title>
-<meta name="description" content="Kinetixis finds brands that want to sponsor creators in your niche, talks to the interested ones, then hands you the project.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<title>Model Merger – combine AI models on your PC</title>
+<meta name="description" content="Model Merger is a Windows app that blends AI models, or keeps the better model’s parts for your task. One-time $29.99. Works offline.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Model Merger","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication","offers":{"@type":"Offer","price":"29.99","priceCurrency":"USD"}}</script>
 <style>
-:root{
-  --bg:#F4EEFF; --ink:#1B0F40; --card:#FFFFFF; --violet:#5B2EFF; --pink:#FF3D8B; --sun:#FFD93D; --mute:#5a4d82;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#140A33;--ink:#F4EEFF;--card:#231552;--mute:#b9aee0;color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#140A33;--ink:#F4EEFF;--card:#231552;--mute:#b9aee0;color-scheme:dark}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;font-size:1.05rem;line-height:1.55;overflow-x:hidden}
-h1,h2,h3,.logo{font-family:"Bricolage Grotesque",Figtree,sans-serif;letter-spacing:-.03em;line-height:1}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+:root{--bg:#f4f6f8;--fg:#14202b;--mut:#566474;--ln:#d9dfe6;--pn:#fff;--a:#0b8a8f;--b:#7b4fe0;--k:#14202b;--kf:#fff;--td:#fff3b0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f151c;--fg:#e8edf2;--mut:#9aa8b6;--ln:#26313c;--pn:#16202a;--a:#2fc2c7;--b:#a58bff;--k:#e8edf2;--kf:#0f151c;--td:#5c4d00}}
+:root[data-theme=dark]{--bg:#0f151c;--fg:#e8edf2;--mut:#9aa8b6;--ln:#26313c;--pn:#16202a;--a:#2fc2c7;--b:#a58bff;--k:#e8edf2;--kf:#0f151c;--td:#5c4d00}
+*,*::before,*::after{box-sizing:inherit}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,6vw,3.6rem)}h2{font-size:1.7rem;margin-top:2.2em}h3{font-size:1.2rem;margin-top:1.6em}
+p,li{max-width:68ch}a{color:inherit;text-underline-offset:3px}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--b);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--ln);z-index:11}
+.w{max-width:960px;margin:0 auto;padding:0 20px}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px 0}
+.logo{font:700 1.15rem Georgia,serif;text-decoration:none;margin-right:auto}nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mut)}nav a[aria-current]{color:var(--fg);text-decoration:underline}
+.btn{display:inline-block;background:var(--k);color:var(--kf);padding:.7em 1.3em;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--k)}
+.btn.o{background:none;color:var(--fg);border-color:var(--ln)}.sm{padding:.4em .9em;font-size:.95rem}
+main{padding:36px 0 60px}section[hidden]{display:none}.lead{font-size:1.2rem;color:var(--mut)}.row{display:flex;flex-wrap:wrap;gap:12px;margin:1.4em 0}
+.viz{margin:1.6em 0;max-width:420px}.viz .a{fill:var(--a)}.viz .b{fill:var(--b)}.viz text{font:12px system-ui;fill:var(--mut)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin:1.8em 0}.cols div{border-top:3px solid var(--a)}.cols div:nth-child(2){border-color:var(--b)}
+.cols h3{margin-top:.6em}.price{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:26px;max-width:460px}
+.price b{font:700 3rem Georgia,serif}.mut{color:var(--mut)}.note{background:var(--pn);border-left:4px solid var(--b);padding:10px 16px;margin:1.2em 0}
+mark.t{background:var(--td);color:inherit;padding:0 3px;border-radius:3px}details{border-bottom:1px solid var(--ln);padding:12px 0;max-width:68ch}summary{cursor:pointer;font-weight:600}
+ul,ol{padding-left:1.3em}li{margin:.35em 0}code{background:var(--pn);border:1px solid var(--ln);padding:0 5px;border-radius:4px;font-size:.9em}
+footer{border-top:1px solid var(--ln);padding:26px 0 40px;color:var(--mut);font-size:.9rem}footer a{margin-right:16px;display:inline-block}
+</style></head><body>
+<header><div class="w bar"><a class="logo" href="#home">Model Merger</a>
+<nav aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#guide">Guide</a><a href="#faq">FAQ</a><a href="#support">Support</a></nav>
+<a class="btn sm buy" href="#pricing">Buy $29.99</a></div></header>
+<main class="w">
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:800;font-size:1.6rem;text-decoration:none}
-.logo i{font-style:normal;color:var(--pink)}
-.pill{display:inline-block;padding:12px 22px;border-radius:99px;background:var(--ink);color:var(--bg);font-weight:600;text-decoration:none;transition:transform .15s}
-.pill:hover{transform:rotate(-2deg) scale(1.04)}
-.pill.pink{background:var(--pink);color:#fff}
+<section id="p-home"><h1>Combine AI models without writing code.</h1>
+<p class="lead">Model Merger is a Windows app that blends two or more AI models into one, or keeps whichever model does better at your task for each part. It runs on your computer, so your models never leave it.</p>
+<div class="row"><a class="btn buy" href="#pricing">Buy for $29.99</a><a class="btn o" href="#features">See what it does</a></div>
+<div class="viz" id="viz"></div>
+<div class="cols"><div><h3>Merge</h3><p>20 methods, from a simple average to SLERP, TIES, DARE and DELLA. Set how much of each model you want, even layer by layer.</p></div>
+<div><h3>Pick the better model for your task</h3><p>Give it examples of the skill you care about. It tests both models and keeps the better one for each layer. No averaging.</p></div>
+<div><h3>Tools around it</h3><p>Apply or extract LoRA adapters, stack layers from different models, and check how well two models fit before you merge.</p></div></div>
+<h2>How it works</h2>
+<ol><li>Choose your models. Shards and common formats work: <code>.safetensors</code>, <code>.pt</code>, <code>.pth</code>, <code>.bin</code>, <code>.ckpt</code>.</li><li>Pick a method, or press <b>Check compatibility</b> or <b>Analyze models</b> first.</li><li>Press <b>Merge models</b>. You get a new model file next to your first one, plus a report. Your originals are never changed.</li></ol>
+<p class="note">A merge can turn out worse than either original model. The analysis and the held-back check in task mode help, but always test the result.</p>
+<h2>One price</h2><p>$29.99, paid once. <a href="#pricing">See what’s included</a>.</p></section>
 
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:36px 0 90px}
-h1{font-weight:800;font-size:clamp(2.8rem,8vw,6rem)}
-h1 span{display:inline-block;background:var(--sun);color:#1B0F40;padding:0 .15em;border-radius:.2em;transform:rotate(-2deg)}
-.hero p{max-width:36ch;margin:26px 0 30px;color:var(--mute);font-size:1.2rem}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
+<section id="p-features" data-t="Features" hidden><h1>What’s in Model Merger</h1>
+<h2>Merge methods</h2><ul><li><b>Average and spherical:</b> linear, SLERP, NuSLERP, Multi-SLERP, Karcher mean.</li><li><b>Fine-tune based</b> (needs the original base model): Task arithmetic, TIES, DARE-linear, DARE-TIES, DELLA, DELLA-linear, Breadcrumbs, Breadcrumbs-TIES, SCE, RAM, RAM+.</li><li><b>Specialised:</b> Model Stock, Nearswap, Arcee Fusion, Passthrough (convert or rescale one model).</li></ul>
+<h2>Pick the best per task</h2><p>Provide a file of examples (prompt and answer, or plain text). The app scores both models on them, starts from the better one, and swaps in the other model’s layers only where that improves the score. A share of your examples is held back to check the result on data it didn’t choose from.</p>
+<p class="mut">Needs model folders with their tokenizer, and enough RAM to load Model A (about 4 bytes per parameter on the standard CPU build).</p>
+<h2>Other tools</h2><ul><li>Apply one or more LoRA adapters to a model, or extract an adapter from a fine-tune.</li><li>Stack layers from several models (for example <code>A[0:20] B[10:30]</code>) to build a deeper or shallower model.</li><li>Per-layer blending, rules that treat parts of the model differently, and weight-size restoration.</li></ul>
+<h2>Built for big files</h2><ul><li>Works layer by layer, so memory use stays low however large the models are.</li><li>Cancel any time and continue later from where it stopped.</li><li>Checks that two models fit, flags broken numbers, and verifies the saved file.</li><li>Writes an HTML report with plain-language suggestions.</li><li>Opens <code>.pt</code> and <code>.ckpt</code> files in a safe mode that doesn’t run code from the file.</li><li>Works offline.</li></ul>
+<h2>Good to know</h2><p>Windows 10 and 11 (64-bit) only. The standard build runs on the CPU. Merging works best on models of the same family and size.</p>
+<div class="row"><a class="btn buy" href="#pricing">Buy for $29.99</a></div></section>
 
-.phone{width:min(270px,100%);aspect-ratio:9/17;margin:0 auto;border:8px solid var(--ink);border-radius:38px;position:relative;overflow:hidden;transform:rotate(4deg);box-shadow:12px 12px 0 var(--pink);background:var(--violet)}
-.bars{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:5px;z-index:3}
-.bars b{flex:1;height:4px;border-radius:9px;background:rgba(255,255,255,.35);overflow:hidden}
-.bars b::after{content:"";display:block;height:100%;width:0;background:#fff;animation:f1 9s linear infinite}
-.bars b:nth-child(2)::after{animation-name:f2}
-.bars b:nth-child(3)::after{animation-name:f3}
-@keyframes f1{0%{width:0}33%{width:100%}99%{width:100%}100%{width:0}}
-@keyframes f2{0%,33%{width:0}66%{width:100%}99%{width:100%}100%{width:0}}
-@keyframes f3{0%,66%{width:0}99%{width:100%}100%{width:0}}
-.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;opacity:0;animation:sh1 9s infinite}
-.slide.s2{animation-name:sh2}
-.slide.s3{animation-name:sh3}
-@keyframes sh1{0%,32%{opacity:1}34%,98%{opacity:0}100%{opacity:1}}
-@keyframes sh2{0%,32%{opacity:0}34%,65%{opacity:1}67%,100%{opacity:0}}
-@keyframes sh3{0%,65%{opacity:0}67%,98%{opacity:1}100%{opacity:0}}
-.slide strong{font-family:"Bricolage Grotesque",sans-serif;font-size:2.6rem;line-height:.95;letter-spacing:-.03em}
-.slide small{font-size:.95rem;opacity:.9;margin-top:8px}
-.s1{background:linear-gradient(160deg,#5B2EFF,#9B6BFF)}
-.s2{background:linear-gradient(160deg,#FF3D8B,#FF8A5B)}
-.s3{background:linear-gradient(160deg,#1B0F40,#5B2EFF)}
-.rec{position:absolute;top:30px;right:16px;z-index:3;display:flex;align-items:center;gap:6px;color:#fff;font-size:.8rem;font-weight:600}
-.rec::before{content:"";width:9px;height:9px;border-radius:50%;background:#ff3030}
+<section id="p-pricing" data-t="Pricing" hidden><h1>Pricing</h1>
+<div class="price"><b>$29.99</b> <span class="mut">one-time, USD</span>
+<ul><li>Model Merger for Windows 10 and 11</li><li>All merge methods and tools listed on this site</li><li>The user guide and email support</li><li>Use for personal or commercial projects</li></ul>
+<p><a class="btn buy" href="#pricing">Buy now</a></p><p class="mut">Secure checkout by <mark class="t">[payment provider]</mark>. Taxes are shown at checkout. <mark class="t">[Updates policy]</mark></p></div>
+<p class="note setup">Setup needed: add your payment link to <code>CHECKOUT</code> in the page’s script. Until then the buy buttons stay on this page.</p>
+<h2>Before you buy</h2><ul><li>Windows 10 or 11, 64-bit. Not available for Mac or Linux.</li><li>Free disk space about the size of the model you create.</li><li>Merging uses little memory. Task mode needs enough RAM to load one model.</li><li>If you’re not satisfied, see the <a href="#refund">refund policy</a>.</li></ul></section>
 
-section{padding:80px 0}
-h2{font-weight:800;font-size:clamp(2.1rem,5vw,3.6rem);max-width:15ch}
-.lead{color:var(--mute);max-width:46ch;margin-top:16px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
-.step{background:var(--card);border-radius:28px;padding:30px 26px 34px;border:3px solid var(--ink)}
-.step:nth-child(1){background:var(--sun);color:#1B0F40;transform:rotate(-1.5deg)}
-.step:nth-child(2){background:var(--pink);color:#fff;transform:rotate(1deg)}
-.step:nth-child(3){background:var(--violet);color:#fff;transform:rotate(-.5deg)}
-.step em{font-style:normal;font-weight:800;font-size:.95rem;opacity:.75}
-.step h3{font-size:2.2rem;margin:10px 0 12px}
-.step p{font-size:1rem}
+<section id="p-guide" data-t="Guide" hidden><h1>Getting started</h1>
+<ol><li>Run the installer or <code>ModelMerger.exe</code>. Wait until the status line says “Ready.”</li><li>Choose Model A and Model B. Pick all the shard files of a model, or just one.</li><li>Pick a method. Methods that need a base model show an extra box for it.</li><li>Press <b>Check compatibility</b>. It tells you if the two models fit.</li><li>Press <b>Merge models</b>. The result is saved next to Model A as <code>merged_model.safetensors</code> (or a <code>merged_model</code> folder if your model came in a folder with <code>config.json</code>).</li></ol>
+<p>The report (<code>.report.html</code> or <code>merge_report.html</code>) opens from the <b>Open report</b> button. To stop, press <b>Cancel</b>. Press <b>Merge</b> again to continue.</p>
+<h2>Task examples file</h2><p>A <code>.jsonl</code> or <code>.json</code> file with <code>prompt</code> and <code>completion</code> (or <code>question</code>/<code>answer</code>, <code>input</code>/<code>output</code>, <code>text</code>), or a <code>.txt</code> file with examples separated by blank lines. Use dozens of varied examples; a handful mostly picks noise.</p>
+<h2>Troubleshooting</h2>
+<details><summary>“The merge engine could not start”</summary><p>Read the message and <code>ModelMerger_error.log</code> next to the app. If it mentions “x86-64-v2” or “baseline optimizations”, the processor is too old for that build. If it mentions a DLL, install the Microsoft Visual C++ Redistributable (x64) and restart. Close all Model Merger windows first.</p></details>
+<details><summary>Windows says “unrecognized app”</summary><p>Unsigned programs can trigger SmartScreen. Choose More info, then Run anyway, if you downloaded it from this site.</p></details>
+<details><summary>“Models don’t share the same layers”</summary><p>The two models have different architectures or sizes. Merge models from the same family and size.</p></details>
+<details><summary>It stopped unexpectedly or ran out of memory</summary><p>Close other programs and try again. Merging resumes where it stopped. Task mode needs more RAM than a normal merge.</p></details>
+<details><summary>The merged model gives poor answers</summary><p>Try Analyze models, a different method, or a smaller blend. Merging doesn’t guarantee quality, so test with your own prompts.</p></details></section>
 
-.why{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.why span{padding:14px 22px;border-radius:99px;border:3px solid var(--ink);font-weight:600;background:var(--card)}
-.why span:nth-child(2n){background:var(--sun);color:#1B0F40;transform:rotate(-2deg)}
-.why span:nth-child(3n){background:var(--pink);color:#fff;transform:rotate(1.5deg)}
+<section id="p-faq" data-t="FAQ" hidden><h1>Questions</h1>
+<details><summary>Does it need the internet?</summary><p>No. It works offline. Nothing you merge is uploaded.</p></details>
+<details><summary>Which models work?</summary><p>Models with matching layers and sizes, in the formats listed above. It is aimed at transformer language models. Image-model checkpoints with identical layouts can be merged weight by weight, but are less tested, and task mode is for language models only.</p></details>
+<details><summary>Do I need a GPU?</summary><p>No. The standard build uses the CPU.</p></details>
+<details><summary>Will the merged model be better?</summary><p>Not guaranteed. Task mode measures quality on your examples. Other methods don’t, so test the result.</p></details>
+<details><summary>Can I use merged models commercially?</summary><p>That depends on the licenses of the models you merge. You are responsible for following them.</p></details>
+<details><summary>Is it a subscription?</summary><p>No. It’s a one-time payment of $29.99.</p></details>
+<details><summary>How do I get a refund?</summary><p>See the <a href="#refund">refund policy</a>.</p></details>
+<details><summary>Mac or Linux?</summary><p>Windows 10 and 11 only for now.</p></details></section>
 
-footer{background:var(--ink);color:var(--bg);border-radius:40px 40px 0 0;padding:70px 0 40px;margin-top:40px;text-align:center}
-footer h2{margin:0 auto 22px;max-width:14ch;color:var(--bg)}
-.mail{display:inline-block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.3rem,4.6vw,2.6rem);letter-spacing:-.02em;text-decoration:none;background:var(--sun);color:#1B0F40;padding:16px 28px;border-radius:99px;transition:transform .15s;word-break:break-all}
-.mail:hover{transform:rotate(-2deg) scale(1.03)}
-footer p{margin-top:40px;opacity:.65;font-size:.9rem}
+<section id="p-support" data-t="Support" hidden><h1>Support</h1>
+<p>Email <mark class="t">[support@yourdomain.com]</mark>. We reply within <mark class="t">[2 business days]</mark>.</p>
+<p>To help us fix things quickly, include:</p><ul><li>Your order email and the app version.</li><li>What you did and the exact message you saw.</li><li><code>ModelMerger_error.log</code> if it exists, and the model names and sizes.</li></ul>
+<p>Many answers are in the <a href="#guide">guide</a> and the <a href="#faq">FAQ</a>.</p></section>
 
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;padding-bottom:60px}
-  .steps{grid-template-columns:1fr}
-  .phone{margin-top:20px}
-}
-@media (prefers-reduced-motion:reduce){
-  .bars b::after,.slide,.slide.s2,.slide.s3{animation:none}
-  .slide.s1{opacity:1}
-  html{scroll-behavior:auto}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <nav>
-    <a class="logo" href="#top" aria-label="Kinetixis home">Kinetixis<i>.</i></a>
-    <a class="pill" href="#contact">Contact us</a>
-  </nav>
+<section id="p-refund" data-t="Refund policy" hidden><h1>Refund policy</h1>
+<p>If Model Merger doesn’t work for you, ask for a refund within <mark class="t">14 days</mark> of purchase. Email <mark class="t">[support@yourdomain.com]</mark> from your order email. Please tell us what went wrong so we can try to fix it.</p>
+<ul><li>Approved refunds go back to the original payment method, usually within 5 to 10 business days.</li><li>We may decline refunds that show abuse, such as repeated purchase and refund.</li><li>Where the law gives you more rights, those rights apply.</li></ul><p class="mut">Last updated November 17, 2026.</p></section>
 
-  <header class="hero" id="top">
-    <div>
-      <h1>Your niche. Their <span>budget.</span></h1>
-      <p>We find brands looking to sponsor creators like you, talk to the ones who are interested, then hand you the project. You just make the reel.</p>
-      <div class="btns">
-        <a class="pill pink" href="#contact">Get brand deals</a>
-        <a class="pill" href="#how">How it works</a>
-      </div>
-    </div>
-    <div class="phone" role="img" aria-label="A reel cycling through find, talk and create">
-      <div class="bars"><b></b><b></b><b></b></div>
-      <div class="rec">REC</div>
-      <div class="slide s1"><strong>Find.</strong><small>Brands hunting for creators in your niche.</small></div>
-      <div class="slide s2"><strong>Talk.</strong><small>We chat with the interested ones so you don’t have to.</small></div>
-      <div class="slide s3"><strong>Create.</strong><small>The brief lands with you. Time to make the reel.</small></div>
-    </div>
-  </header>
+<section id="p-privacy" data-t="Privacy policy" hidden><h1>Privacy policy</h1>
+<p><mark class="t">[Your company name]</mark>, <mark class="t">[address]</mark> (“we”), runs this site and sells Model Merger.</p>
+<h3>The app</h3><p>The app runs on your computer and works offline. We don’t receive your models, files or usage. If something fails, it saves <code>ModelMerger_error.log</code> on your computer. We only see it if you send it to us.</p>
+<h3>This website</h3><p>The site sets no cookies and has no analytics. Our host may keep standard server logs, such as IP address, for security.</p>
+<h3>Purchases</h3><p>Payment is handled by <mark class="t">[payment provider]</mark>, which collects your name, email, billing details and tax information. We receive your name, email and order details to deliver the product, give support and meet legal duties. We never see your full card number.</p>
+<h3>Support emails</h3><p>We keep them as long as needed to help you and for our records. We don’t sell your data.</p>
+<h3>Your rights</h3><p>Depending on where you live, you can ask to see, correct or delete your data. Email <mark class="t">[support@yourdomain.com]</mark>.</p><p class="mut">Last updated November 17, 2026.</p></section>
 
-  <section id="how">
-    <h2>Find. Talk. Create.</h2>
-    <p class="lead">Chasing brands is a full-time job. We do the hunting and the negotiating, so you can stay focused on the thing you’re actually good at: making content people love.</p>
-    <div class="steps">
-      <div class="step">
-        <em>Step 1</em>
-        <h3>Find</h3>
-        <p>We search for companies that want to sponsor an influencer to promote their product or service in your niche.</p>
-      </div>
-      <div class="step">
-        <em>Step 2</em>
-        <h3>Talk</h3>
-        <p>We reach out and talk with the companies that are genuinely interested, and sort out what they want from the collab.</p>
-      </div>
-      <div class="step">
-        <em>Step 3</em>
-        <h3>Create</h3>
-        <p>Once it’s a go, we hand the project over to you. You shoot and post the promo reel, your way.</p>
-      </div>
-    </div>
-  </section>
+<section id="p-terms" data-t="Terms and license" hidden><h1>Terms of sale and license</h1>
+<ol><li><b>License.</b> After you pay, we grant you a non-exclusive, non-transferable license to install and use Model Merger for yourself on computers you own or control, for personal or commercial work.</li>
+<li><b>Limits.</b> Don’t resell, share or redistribute the app or your download link, and don’t remove notices. Open-source parts remain under their own licenses (see <a href="#licenses">Open-source notices</a>).</li>
+<li><b>Your models and data.</b> You are responsible for having the right to use the models you merge and for following their licenses. You own what you create, subject to those licenses. Merged models can be wrong or unsafe: test them before relying on them.</li>
+<li><b>Price and payment.</b> $29.99 USD, paid once, plus any taxes shown at checkout.</li>
+<li><b>Refunds.</b> As set out in the <a href="#refund">refund policy</a>.</li>
+<li><b>No warranty.</b> The app is provided “as is”, without warranties of any kind, to the extent the law allows.</li>
+<li><b>Liability.</b> To the extent the law allows, we are not liable for indirect or lost-data losses, and our total liability is limited to the price you paid.</li>
+<li><b>Changes and law.</b> We may update these terms for future sales. They are governed by the laws of <mark class="t">[your jurisdiction]</mark>.</li></ol><p class="mut">Last updated November 17, 2026.</p></section>
 
-  <section>
-    <h2>Why creators pick us</h2>
-    <div class="why">
-      <span>Niche-matched brands</span>
-      <span>No cold DMs</span>
-      <span>We handle the talking</span>
-      <span>Only interested brands</span>
-      <span>You keep your style</span>
-      <span>Focus on the reel</span>
-    </div>
-  </section>
-</div>
+<section id="p-licenses" data-t="Open-source notices" hidden><h1>Open-source notices</h1>
+<p>Model Merger includes open-source software. Thank you to its authors.</p>
+<ul><li>PyTorch (BSD-3-Clause), NumPy (BSD-3-Clause)</li><li>safetensors, Transformers and Tokenizers (Apache-2.0)</li><li>CustomTkinter (MIT)</li><li>Python (PSF License) and PyInstaller (GPL-2.0-or-later with its bootloader exception)</li></ul>
+<p>Their dependencies carry their own licenses. Full license texts are included with the app <mark class="t">[add the license files to your download]</mark>.</p>
+<p>The merge methods come from published research and public documentation, including the open-source MergeKit project. Model Merger is independent and is not affiliated with MergeKit, Arcee AI, Hugging Face or any model publisher. All trademarks belong to their owners.</p></section>
 
-<footer id="contact">
-  <div class="wrap">
-    <h2>Got an audience? Let’s find your brand.</h2>
-    <a class="mail" href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a>
-    <p>© 2026 Kinetixis. Brands meet creators here.</p>
-  </div>
-</footer>
-</body>
-</html>
+<section id="p-thanks" data-t="Thank you" hidden><h1>Thank you for your order</h1>
+<p>Your download link and receipt are on their way to your email. Check your spam folder if it doesn’t arrive within a few minutes.</p>
+<ol><li>Download the app from the link in your email.</li><li>Run it and wait for “Ready.”</li><li>Follow the <a href="#guide">getting started guide</a>.</li></ol><p>Questions? <a href="#support">Contact support</a>.</p></section>
+</main>
+<footer><div class="w"><a href="#guide">Guide</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#licenses">Open-source notices</a>
+<p>© 2026 <mark class="t">[Your company name]</mark>. Model Merger is for Windows 10 and 11.</p></div></footer>
+<script>
+const CHECKOUT="";
+const S=[...document.querySelectorAll("main>section")],L=[...document.querySelectorAll("header nav a")];
+function go(){const h=location.hash.slice(1)||"home",s=S.find(x=>x.id==="p-"+h)||S[0];S.forEach(x=>x.hidden=x!==s);
+L.forEach(a=>a.hash==="#"+s.id.slice(2)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+document.title=(s.dataset.t?s.dataset.t+" – ":"")+"Model Merger";scrollTo(0,0)}
+addEventListener("hashchange",go);go();
+document.querySelectorAll(".buy").forEach(a=>{if(CHECKOUT)a.href=CHECKOUT});
+document.querySelectorAll(".setup").forEach(e=>{if(CHECKOUT)e.remove()});
+let h='<svg viewBox="0 0 360 150" role="img" aria-label="Model A and Model B feed a merged model that takes each layer from whichever model scores better">';
+[["Model A",20,"AAAAAAAA"],["Model B",140,"BBBBBBBB"],["Merged",260,"ABBABAAB"]].forEach(([t,x,p])=>{h+=`<text x="${x}" y="12">${t}</text>`;
+[...p].forEach((k,i)=>h+=`<rect x="${x}" y="${20+i*16}" width="80" height="11" rx="2" class="${k.toLowerCase()}"/>`)});
+document.getElementById("viz").innerHTML=h+"</svg>";
+</script></body></html>
