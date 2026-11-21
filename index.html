@@ -1,138 +1,220 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kinetixis Model Merger – combine AI models on your PC</title>
-<meta name="description" content="Kinetixis Model Merger is a Windows app that blends AI models, or keeps the better model’s parts for your task. One-time $29.99. Works offline.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Kinetixis Model Merger","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication","offers":{"@type":"Offer","price":"29.99","priceCurrency":"USD"}}</script>
+<title>KinetixisMM – combine AI models on your PC</title>
+<meta name="description" content="KinetixisMM is a Windows app that blends AI models, or keeps the better model’s parts for your task. One-time ₹1,299. Merges offline.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"KinetixisMM","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication","offers":{"@type":"Offer","price":"1299","priceCurrency":"INR"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f6f8;--fg:#14202b;--mut:#566474;--ln:#d9dfe6;--pn:#fff;--a:#0b8a8f;--b:#7b4fe0;--k:#14202b;--kf:#fff;--td:#fff3b0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f151c;--fg:#e8edf2;--mut:#9aa8b6;--ln:#26313c;--pn:#16202a;--a:#2fc2c7;--b:#a58bff;--k:#e8edf2;--kf:#0f151c;--td:#5c4d00}}
-:root[data-theme=dark]{--bg:#0f151c;--fg:#e8edf2;--mut:#9aa8b6;--ln:#26313c;--pn:#16202a;--a:#2fc2c7;--b:#a58bff;--k:#e8edf2;--kf:#0f151c;--td:#5c4d00}
+:root{--bg:#f5f7fc;--fg:#0f172a;--mut:#56627f;--ln:#e0e5f1;--pn:#ffffffcc;--a:#0b8799;--b:#5046e5;--g:linear-gradient(120deg,#0b8799,#5046e5);--bt:#fff;--td:#fff1a8;--sh:0 14px 34px -16px #2a3a7066;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#090d19;--fg:#e9eefc;--mut:#9aa7c7;--ln:#222b45;--pn:#121830cc;--a:#35d0e0;--b:#8b8bff;--g:linear-gradient(120deg,#35d0e0,#8b8bff);--bt:#06111d;--td:#5c4d00;--sh:0 14px 34px -16px #000c}}
+:root[data-theme=dark]{--bg:#090d19;--fg:#e9eefc;--mut:#9aa7c7;--ln:#222b45;--pn:#121830cc;--a:#35d0e0;--b:#8b8bff;--g:linear-gradient(120deg,#35d0e0,#8b8bff);--bt:#06111d;--td:#5c4d00;--sh:0 14px 34px -16px #000c}
 *,*::before,*::after{box-sizing:inherit}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;color:var(--fg);font:400 17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(900px 520px at 88% -8%,#5046e526,transparent),radial-gradient(760px 460px at -8% 6%,#0b879926,transparent),var(--bg);background-attachment:fixed}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
-h1,h2,h3{font-family:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
-h1{font-size:clamp(2.2rem,6vw,3.6rem)}h2{font-size:1.7rem;margin-top:2.2em}h3{font-size:1.2rem;margin-top:1.6em}
+h1,h2,h3,.logo,.price b{font-family:Outfit,Inter,system-ui,sans-serif}h1,h2,h3{line-height:1.12;margin:0 0 .5em;letter-spacing:-.02em;font-weight:600}
+h1{font-size:clamp(2.4rem,6vw,3.9rem);font-weight:700}h2{font-size:1.85rem;margin-top:2.3em}h3{font-size:1.2rem;margin-top:1.4em}
 p,li{max-width:68ch}a{color:inherit;text-underline-offset:3px}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--b);outline-offset:3px}
-header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--ln);z-index:11}
-.w{max-width:960px;margin:0 auto;padding:0 20px}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px 0}
-.logo{font:700 1.15rem Georgia,serif;text-decoration:none;margin-right:auto}nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.95rem}
-nav a{text-decoration:none;color:var(--mut)}nav a[aria-current]{color:var(--fg);text-decoration:underline}
-.btn{display:inline-block;background:var(--k);color:var(--kf);padding:.7em 1.3em;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--k)}
-.btn.o{background:none;color:var(--fg);border-color:var(--ln)}.sm{padding:.4em .9em;font-size:.95rem}
-main{padding:36px 0 60px}section[hidden]{display:none}.lead{font-size:1.2rem;color:var(--mut)}.row{display:flex;flex-wrap:wrap;gap:12px;margin:1.4em 0}
-.viz{margin:1.6em 0;max-width:420px}.viz .a{fill:var(--a)}.viz .b{fill:var(--b)}.viz text{font:12px system-ui;fill:var(--mut)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin:1.8em 0}.cols div{border-top:3px solid var(--a)}.cols div:nth-child(2){border-color:var(--b)}
-.cols h3{margin-top:.6em}.price{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:26px;max-width:460px}
-.price b{font:700 3rem Georgia,serif}.mut{color:var(--mut)}.note{background:var(--pn);border-left:4px solid var(--b);padding:10px 16px;margin:1.2em 0}
-mark.t{background:var(--td);color:inherit;padding:0 3px;border-radius:3px}details{border-bottom:1px solid var(--ln);padding:12px 0;max-width:68ch}summary{cursor:pointer;font-weight:600}
-ul,ol{padding-left:1.3em}li{margin:.35em 0}code{background:var(--pn);border:1px solid var(--ln);padding:0 5px;border-radius:4px;font-size:.9em}
-footer{border-top:1px solid var(--ln);padding:26px 0 40px;color:var(--mut);font-size:.9rem}footer a{margin-right:16px;display:inline-block}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln);z-index:11}
+.w{max-width:1000px;margin:0 auto;padding:0 22px}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px 0}
+.logo{font-weight:700;font-size:1.3rem;text-decoration:none;margin-right:auto;letter-spacing:-.02em}.logo span{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;flex-wrap:wrap;gap:4px 6px;font-size:.95rem}nav a{text-decoration:none;color:var(--mut);padding:.3em .8em;border-radius:999px}nav a:hover{color:var(--fg)}nav a[aria-current]{color:var(--fg);background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
+.btn{display:inline-block;background:var(--g);color:var(--bt);padding:.8em 1.6em;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:var(--sh);transition:transform .15s}.btn:hover{transform:translateY(-2px)}
+.btn.o{background:var(--pn);color:var(--fg);box-shadow:inset 0 0 0 1px var(--ln)}.sm{padding:.5em 1.1em;font-size:.92rem}
+main{padding:44px 0 70px}section[hidden]{display:none}.lead{font-size:1.2rem;color:var(--mut)}.row{display:flex;flex-wrap:wrap;gap:12px;margin:1.6em 0}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.gt{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.2em;padding:0;list-style:none}.pills li{margin:0;font-size:.82rem;border:1px solid var(--ln);background:var(--pn);padding:.25em .85em;border-radius:999px;color:var(--mut)}
+.viz{background:var(--pn);border:1px solid var(--ln);border-radius:24px;padding:18px;box-shadow:var(--sh);backdrop-filter:blur(8px)}.viz .a{fill:var(--a)}.viz .b{fill:var(--b)}.viz text{font:500 12px Inter,system-ui;fill:var(--mut)}.viz path{stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:2.4em 0}.cols div{background:var(--pn);border:1px solid var(--ln);border-radius:20px;padding:24px;box-shadow:var(--sh)}.cols h3{margin-top:.9em}.cols p{margin:0;color:var(--mut)}
+.ic{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;background:var(--g);color:var(--bt)}.ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.steps li{counter-increment:s;max-width:none;margin:0;background:var(--pn);border:1px solid var(--ln);border-radius:18px;padding:18px 20px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--g);color:var(--bt);font:600 .95rem Outfit,sans-serif;margin-bottom:10px}
+.price{border:2px solid transparent;border-radius:24px;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--g) border-box;padding:30px;max-width:480px;box-shadow:var(--sh)}.price b{font-size:3.4rem;font-weight:700;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mut{color:var(--mut)}.note{background:var(--pn);border:1px solid var(--ln);border-left:4px solid var(--b);border-radius:12px;padding:12px 18px;margin:1.4em 0}
+mark.t{background:var(--td);color:inherit;padding:0 4px;border-radius:4px}details{background:var(--pn);border:1px solid var(--ln);border-radius:14px;padding:14px 20px;margin:10px 0;max-width:72ch}details[open]{box-shadow:var(--sh)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}summary::-webkit-details-marker{display:none}summary::after{content:"+";color:var(--b);font-size:1.4rem;line-height:1}details[open] summary::after{content:"–"}details p{margin:.7em 0 0;color:var(--mut)}
+ul,ol{padding-left:1.3em}li{margin:.4em 0}code{background:var(--pn);border:1px solid var(--ln);padding:.05em .45em;border-radius:6px;font-size:.88em}
+footer{border-top:1px solid var(--ln);padding:28px 0 44px;color:var(--mut);font-size:.9rem}footer a{margin-right:18px;display:inline-block;text-decoration:none}footer a:hover{color:var(--fg)}
+ul.tp{columns:2 260px;font-size:.88rem;padding-left:1.2em}
 </style></head><body>
-<header><div class="w bar"><a class="logo" href="#home">Kinetixis Model Merger</a>
+<header><div class="w bar"><a class="logo" href="#home">Kinetixis<span>MM</span></a>
 <nav aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#guide">Guide</a><a href="#faq">FAQ</a><a href="#support">Support</a></nav>
-<a class="btn sm buy" href="#pricing">Buy $29.99</a></div></header>
+<a class="btn sm buy" href="#pricing">Buy ₹1,299</a></div></header>
 <main class="w">
 
-<section id="p-home"><h1>Combine AI models without writing code.</h1>
-<p class="lead">Kinetixis Model Merger is a Windows app that blends two or more AI models into one, or keeps whichever model does better at your task for each part. It runs on your computer, so your models never leave it.</p>
-<div class="row"><a class="btn buy" href="#pricing">Buy for $29.99</a><a class="btn o" href="#features">See what it does</a></div>
-<div class="viz" id="viz"></div>
-<div class="cols"><div><h3>Merge</h3><p>20 methods, from a simple average to SLERP, TIES, DARE and DELLA. Set how much of each model you want, even layer by layer.</p></div>
-<div><h3>Pick the better model for your task</h3><p>Give it examples of the skill you care about. It tests both models and keeps the better one for each layer. No averaging.</p></div>
-<div><h3>Tools around it</h3><p>Apply or extract LoRA adapters, stack layers from different models, and check how well two models fit before you merge.</p></div></div>
+<section id="p-home"><div class="hero"><div><ul class="pills"><li>Windows 10 &amp; 11</li><li>Merges offline</li><li>One-time ₹1,299</li></ul>
+<h1>Combine AI models <span class="gt">without writing code.</span></h1>
+<p class="lead">KinetixisMM is a Windows app that blends two or more AI models into one, or keeps whichever model does better at your task for each part. It runs on your computer, so your models never leave it.</p>
+<div class="row"><a class="btn buy" href="#pricing">Buy for ₹1,299</a><a class="btn o" href="#features">See what it does</a></div></div>
+<div class="viz" id="viz"></div></div>
+<div class="cols"><div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v4a5 5 0 0 0 5 5h4m0 0-3-3m3 3-3 3M19 4v4a5 5 0 0 1-5 5"/><path d="M12 13v7"/></svg></span><h3>Merge</h3><p>20 methods, from a simple average to SLERP, TIES, DARE and DELLA. Set how much of each model you want, even layer by layer.</p></div>
+<div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Pick the better model for your task</h3><p>Give it examples of the skill you care about. It tests both models and keeps the better one for each layer. No averaging.</p></div>
+<div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5"/></svg></span><h3>Tools around it</h3><p>Apply or extract LoRA adapters, stack layers from different models, and check how well two models fit before you merge.</p></div></div>
 <h2>How it works</h2>
-<ol><li>Choose your models. Shards and common formats work: <code>.safetensors</code>, <code>.pt</code>, <code>.pth</code>, <code>.bin</code>, <code>.ckpt</code>.</li><li>Pick a method, or press <b>Check compatibility</b> or <b>Analyze models</b> first.</li><li>Press <b>Merge models</b>. You get a new model file next to your first one, plus a report. Your originals are never changed.</li></ol>
+<ol class="steps"><li>Choose your models. Shards and common formats work: <code>.safetensors</code>, <code>.pt</code>, <code>.pth</code>, <code>.bin</code>, <code>.ckpt</code>.</li><li>Pick a method, or press <b>Check compatibility</b> or <b>Analyze models</b> first.</li><li>Press <b>Merge models</b>. You get a new model file next to your first one, plus a report. Your originals are never changed.</li></ol>
 <p class="note">A merge can turn out worse than either original model. The analysis and the held-back check in task mode help, but always test the result.</p>
-<h2>One price</h2><p>$29.99, paid once. <a href="#pricing">See what’s included</a>.</p></section>
+<h2>One price</h2><p>₹1,299, paid once. <a href="#pricing">See what’s included</a>.</p></section>
 
-<section id="p-features" data-t="Features" hidden><h1>What’s in Kinetixis Model Merger</h1>
+<section id="p-features" data-t="Features" hidden><h1>What’s in KinetixisMM</h1>
 <h2>Merge methods</h2><ul><li><b>Average and spherical:</b> linear, SLERP, NuSLERP, Multi-SLERP, Karcher mean.</li><li><b>Fine-tune based</b> (needs the original base model): Task arithmetic, TIES, DARE-linear, DARE-TIES, DELLA, DELLA-linear, Breadcrumbs, Breadcrumbs-TIES, SCE, RAM, RAM+.</li><li><b>Specialised:</b> Model Stock, Nearswap, Arcee Fusion, Passthrough (convert or rescale one model).</li></ul>
 <h2>Pick the best per task</h2><p>Provide a file of examples (prompt and answer, or plain text). The app scores both models on them, starts from the better one, and swaps in the other model’s layers only where that improves the score. A share of your examples is held back to check the result on data it didn’t choose from.</p>
 <p class="mut">Needs model folders with their tokenizer, and enough RAM to load Model A (about 4 bytes per parameter on the standard CPU build).</p>
 <h2>Other tools</h2><ul><li>Apply one or more LoRA adapters to a model, or extract an adapter from a fine-tune.</li><li>Stack layers from several models (for example <code>A[0:20] B[10:30]</code>) to build a deeper or shallower model.</li><li>Per-layer blending, rules that treat parts of the model differently, and weight-size restoration.</li></ul>
-<h2>Built for big files</h2><ul><li>Works layer by layer, so memory use stays low however large the models are.</li><li>Cancel any time and continue later from where it stopped.</li><li>Checks that two models fit, flags broken numbers, and verifies the saved file.</li><li>Writes an HTML report with plain-language suggestions.</li><li>Opens <code>.pt</code> and <code>.ckpt</code> files in a safe mode that doesn’t run code from the file.</li><li>Works offline.</li></ul>
+<h2>Built for big files</h2><ul><li>Works layer by layer, so memory use stays low however large the models are.</li><li>Cancel any time and continue later from where it stopped.</li><li>Checks that two models fit, flags broken numbers, and verifies the saved file.</li><li>Writes an HTML report with plain-language suggestions.</li><li>Opens <code>.pt</code> and <code>.ckpt</code> files in a safe mode that doesn’t run code from the file.</li><li>Merges offline. Signing in needs the internet at first and about every 14 days.</li></ul>
 <h2>Good to know</h2><p>Windows 10 and 11 (64-bit) only. The standard build runs on the CPU. Merging works best on models of the same family and size.</p>
-<div class="row"><a class="btn buy" href="#pricing">Buy for $29.99</a></div></section>
+<div class="row"><a class="btn buy" href="#pricing">Buy for ₹1,299</a></div></section>
 
 <section id="p-pricing" data-t="Pricing" hidden><h1>Pricing</h1>
-<div class="price"><b>$29.99</b> <span class="mut">one-time, USD</span>
-<ul><li>Kinetixis Model Merger for Windows 10 and 11</li><li>All merge methods and tools listed on this site</li><li>The user guide and email support</li><li>Use for personal or commercial projects</li></ul>
-<p><a class="btn buy" href="#pricing">Buy now</a></p><p class="mut">Secure checkout by <mark class="t">[payment provider]</mark>. Taxes are shown at checkout. <mark class="t">[Updates policy]</mark></p></div>
+<div class="price"><b>₹1,299</b> <span class="mut">one-time, INR, taxes included</span>
+<ul><li>KinetixisMM for Windows 10 and 11</li><li>All merge methods and tools listed on this site</li><li>The user guide and email support</li><li>Use for personal or commercial projects</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>Proprietary, closed-source software</li></ul>
+<p><a class="btn buy" href="#pricing">Buy now</a></p><p class="mut">By buying you agree to the <a href="#terms">Terms of sale</a> and the <a href="#eula">license agreement</a>.</p>
+<p class="mut">Secure checkout by Razorpay. Prices are in Indian Rupees and include applicable taxes. Includes updates and fixes for this major version at our discretion; new major versions may be sold separately.</p></div>
 <p class="note setup">Setup needed: add your payment link to <code>CHECKOUT</code> in the page’s script. Until then the buy buttons stay on this page.</p>
-<h2>Before you buy</h2><ul><li>Windows 10 or 11, 64-bit. Not available for Mac or Linux.</li><li>Free disk space about the size of the model you create.</li><li>Merging uses little memory. Task mode needs enough RAM to load one model.</li><li>If you’re not satisfied, see the <a href="#refund">refund policy</a>.</li></ul></section>
+<h2>Before you buy</h2><ul><li>Windows 10 or 11, 64-bit. Not available for Mac or Linux.</li><li>Free disk space about the size of the model you create.</li><li>Merging uses little memory. Task mode needs enough RAM to load one model.</li><li>All sales are final. Please read these requirements and the <a href="#refund">refund policy</a> before you buy.</li></ul></section>
 
 <section id="p-guide" data-t="Guide" hidden><h1>Getting started</h1>
-<ol><li>Run the installer or <code>ModelMerger.exe</code>. Wait until the status line says “Ready.”</li><li>Choose Model A and Model B. Pick all the shard files of a model, or just one.</li><li>Pick a method. Methods that need a base model show an extra box for it.</li><li>Press <b>Check compatibility</b>. It tells you if the two models fit.</li><li>Press <b>Merge models</b>. The result is saved next to Model A as <code>merged_model.safetensors</code> (or a <code>merged_model</code> folder if your model came in a folder with <code>config.json</code>).</li></ol>
+<ol><li>Run the installer or <code>KinetixisMM.exe</code> and accept the license agreement.</li><li>Sign in with the email and password of your account (from your purchase email). Wait until the status line says “Ready.”</li><li>Choose Model A and Model B. Pick all the shard files of a model, or just one.</li><li>Pick a method. Methods that need a base model show an extra box for it.</li><li>Press <b>Check compatibility</b>. It tells you if the two models fit.</li><li>Press <b>Merge models</b>. The result is saved next to Model A as <code>merged_model.safetensors</code> (or a <code>merged_model</code> folder if your model came in a folder with <code>config.json</code>).</li></ol>
 <p>The report (<code>.report.html</code> or <code>merge_report.html</code>) opens from the <b>Open report</b> button. To stop, press <b>Cancel</b>. Press <b>Merge</b> again to continue.</p>
+<p>The full user guide, the license agreement and the third-party notices are installed with the app (Start menu, KinetixisMM) and under <b>About / Legal</b> in the app.</p>
 <h2>Task examples file</h2><p>A <code>.jsonl</code> or <code>.json</code> file with <code>prompt</code> and <code>completion</code> (or <code>question</code>/<code>answer</code>, <code>input</code>/<code>output</code>, <code>text</code>), or a <code>.txt</code> file with examples separated by blank lines. Use dozens of varied examples; a handful mostly picks noise.</p>
 <h2>Troubleshooting</h2>
-<details><summary>“The merge engine could not start”</summary><p>Read the message and <code>ModelMerger_error.log</code> next to the app. If it mentions “x86-64-v2” or “baseline optimizations”, the processor is too old for that build. If it mentions a DLL, install the Microsoft Visual C++ Redistributable (x64) and restart. Close all Model Merger windows first.</p></details>
+<details><summary>“The merge engine could not start”</summary><p>Read the message and <code>KinetixisMM_error.log</code> next to the app. If it mentions “x86-64-v2” or “baseline optimizations”, the processor is too old for that build. If it mentions a DLL, install the Microsoft Visual C++ Redistributable (x64) and restart. Close all KinetixisMM windows first.</p></details>
 <details><summary>Windows says “unrecognized app”</summary><p>Unsigned programs can trigger SmartScreen. Choose More info, then Run anyway, if you downloaded it from this site.</p></details>
 <details><summary>“Models don’t share the same layers”</summary><p>The two models have different architectures or sizes. Merge models from the same family and size.</p></details>
 <details><summary>It stopped unexpectedly or ran out of memory</summary><p>Close other programs and try again. Merging resumes where it stopped. Task mode needs more RAM than a normal merge.</p></details>
 <details><summary>The merged model gives poor answers</summary><p>Try Analyze models, a different method, or a smaller blend. Merging doesn’t guarantee quality, so test with your own prompts.</p></details></section>
 
 <section id="p-faq" data-t="FAQ" hidden><h1>Questions</h1>
-<details><summary>Does it need the internet?</summary><p>No. It works offline. Nothing you merge is uploaded.</p></details>
+<details><summary>Does it need the internet?</summary><p>Only to sign in to your account: at first, and at least every 14 days. Merging itself works offline, and your models and files are never uploaded.</p></details>
 <details><summary>Which models work?</summary><p>Models with matching layers and sizes, in the formats listed above. It is aimed at transformer language models. Image-model checkpoints with identical layouts can be merged weight by weight, but are less tested, and task mode is for language models only.</p></details>
 <details><summary>Do I need a GPU?</summary><p>No. The standard build uses the CPU.</p></details>
 <details><summary>Will the merged model be better?</summary><p>Not guaranteed. Task mode measures quality on your examples. Other methods don’t, so test the result.</p></details>
 <details><summary>Can I use merged models commercially?</summary><p>That depends on the licenses of the models you merge. You are responsible for following them.</p></details>
-<details><summary>Is it a subscription?</summary><p>No. It’s a one-time payment of $29.99.</p></details>
-<details><summary>How do I get a refund?</summary><p>See the <a href="#refund">refund policy</a>.</p></details>
+<details><summary>Is it open source?</summary><p>No. KinetixisMM is closed-source commercial software, sold under a <a href="#eula">license agreement</a>. It includes third-party components under their own licenses, credited in the <a href="#licenses">third-party notices</a>.</p></details>
+<details><summary>Is it a subscription?</summary><p>No. It’s a one-time payment of ₹1,299, with no subscription.</p></details>
+<details><summary>Can I get a refund?</summary><p>All sales are final because the app is delivered digitally straight away. There are a few exceptions, for example if you were charged twice or can’t get the app to run on a supported computer. See the <a href="#refund">refund policy</a>.</p></details>
 <details><summary>Mac or Linux?</summary><p>Windows 10 and 11 only for now.</p></details></section>
 
 <section id="p-support" data-t="Support" hidden><h1>Support</h1>
-<p>Email <mark class="t">[arjan@kinetixis.com]</mark>. We reply within <mark class="t">[2 business days]</mark>.</p>
-<p>To help us fix things quickly, include:</p><ul><li>Your order email and the app version.</li><li>What you did and the exact message you saw.</li><li><code>ModelMerger_error.log</code> if it exists, and the model names and sizes.</li></ul>
+<p>Email <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a>. We reply within 7 days.</p>
+<p>To help us fix things quickly, include:</p><ul><li>Your order email and the app version.</li><li>What you did and the exact message you saw.</li><li><code>KinetixisMM_error.log</code> if it exists, and the model names and sizes.</li></ul>
 <p>Many answers are in the <a href="#guide">guide</a> and the <a href="#faq">FAQ</a>.</p></section>
 
-<section id="p-refund" data-t="Refund policy" hidden><h1>Refund policy</h1>
-<p>If Kinetixis Model Merger doesn’t work for you, ask for a refund within <mark class="t">14 days</mark> of purchase. Email <mark class="t">[arjan@kinetixis.com]</mark> from your order email. Please tell us what went wrong so we can try to fix it.</p>
-<ul><li>Approved refunds go back to the original payment method, usually within 5 to 10 business days.</li><li>We may decline refunds that show abuse, such as repeated purchase and refund.</li><li>Where the law gives you more rights, those rights apply.</li></ul><p class="mut">Last updated November 17, 2026.</p></section>
+<section id="p-refund" data-t="Refund policy" hidden><h1>Refund policy</h1><p class="mut">Last updated November 19, 2026</p>
+<p>KinetixisMM is digital software that is delivered electronically straight after payment. For this reason all sales are final: we do not offer refunds, returns, exchanges or cancellations once an order is paid, including if you change your mind or if the Software, or the models you create with it, do not meet your expectations.</p>
+<h3>1. Please check before you buy</h3>
+<p>Please read the product description, the system requirements (Windows 10 or 11, 64-bit; internet access to sign in) and the user guide on our website. Merging results depend on your models and settings and are not guaranteed. If you have a question before buying, email <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a> and we will reply within 7 days.</p>
+<h3>2. When we will fix the problem or refund you</h3>
+<p>We will fix the problem, or refund you if we cannot, in these cases:</p>
+<ul><li>You were charged more than once for the same order, or were charged an incorrect amount.</li><li>You paid but did not receive your download link or account details, and we are unable to deliver them.</li><li>The Software cannot be installed or started on a computer that meets the stated requirements, and our support cannot solve the problem within 14 days of your first message.</li></ul>
+<p>Please email <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a> within 7 days of the problem, from the address you used to buy, with your order number, a description of the problem and the file KinetixisMM_error.log if there is one. We reply within 7 days.</p>
+<h3>3. How refunds are paid</h3>
+<ul><li>Approved refunds are sent through Razorpay to the original payment method, usually within 5 to 10 business days, depending on your bank.</li><li>Your license ends when a refund is paid, and you must uninstall and delete the Software.</li></ul>
+<h3>4. Your legal rights</h3>
+<p>This policy does not reduce any rights you have under the law, including consumer rights where a product is defective or not as described. Where the law allows, you agree that delivery begins immediately after payment and that you therefore give up any right to cancel or withdraw from the purchase.</p></section>
 
-<section id="p-privacy" data-t="Privacy policy" hidden><h1>Privacy policy</h1>
-<p><mark class="t">[Your company name]</mark>, <mark class="t">[address]</mark> (“we”), runs this site and sells Model Merger.</p>
-<h3>The app</h3><p>The app runs on your computer and works offline. We don’t receive your models, files or usage. If something fails, it saves <code>ModelMerger_error.log</code> on your computer. We only see it if you send it to us.</p>
-<h3>This website</h3><p>The site sets no cookies and has no analytics. Our host may keep standard server logs, such as IP address, for security.</p>
-<h3>Purchases</h3><p>Payment is handled by <mark class="t">[payment provider]</mark>, which collects your name, email, billing details and tax information. We receive your name, email and order details to deliver the product, give support and meet legal duties. We never see your full card number.</p>
-<h3>Support emails</h3><p>We keep them as long as needed to help you and for our records. We don’t sell your data.</p>
-<h3>Your rights</h3><p>Depending on where you live, you can ask to see, correct or delete your data. Email <mark class="t">[support@yourdomain.com]</mark>.</p><p class="mut">Last updated November 17, 2026.</p></section>
+<section id="p-privacy" data-t="Privacy policy" hidden><h1>Privacy policy</h1><p class="mut">Last updated November 19, 2026</p>
+<p>Kinetixis, Kawardha, Chhattisgarh, India (“we”, “us”) is responsible for the personal data described here. Contact: <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a></p>
+<h3>1. What stays on your computer</h3>
+<p>Your models, files, settings, merged results and reports never leave your computer. The app contains no analytics or telemetry. Files it creates, and an error log named KinetixisMM_error.log, stay on your computer. We only see an error log if you choose to send it to us.</p>
+<h3>2. Your account and signing in</h3>
+<p>To use the app you sign in with a KinetixisMM account. When you sign in or when the app renews your sign-in, it sends to our sign-in server over an encrypted connection: your account email address and password (to check them), a random identifier of your computer, your computer name, and the app version. Our server keeps: your email address; your password only as a salted hash, never in readable form; the identifier and name of each computer you use; the time and result of sign-ins; and the IP address of the request, for security and to limit repeated attempts. We use this to let you in, to enforce the limit of 3 computers per account, to protect accounts against guessing and abuse, and to provide support (contract and legitimate interests). The app stores a signed sign-in token and, if you choose to stay signed in, your email address on your computer. It never stores your password.</p>
+<h3>3. This website</h3>
+<p>The website sets no cookies and has no analytics. Our hosting provider may keep standard server logs, such as IP address, browser type and pages requested, for security and operation.</p>
+<h3>4. Purchases</h3>
+<p>Payments are handled by Razorpay, a third-party payment service. It collects your name, email address, phone number, billing details and payment details (card, UPI, net banking or wallet) under its own privacy policy. We receive your name, email address, phone number (if you give it) and order details; we never see your full card number or UPI PIN. We use this data to create your account, deliver the Software, provide support, keep records and meet tax and legal duties (contract and legal obligation).</p>
+<h3>5. Support and how long we keep data</h3>
+<p>If you email us, we use your message and contact details to reply and to improve the product. We keep data only as long as needed:</p>
+<ul><li>Account data (email address and the computers you used): while your account is active, and for up to 3 years after your last use, to handle support requests, refunds and disputes.</li><li>Sign-in records (time, result and IP address): up to 12 months.</li><li>Support emails: up to 3 years after the issue is closed.</li><li>Purchase and tax records: up to 8 years, as Indian tax and company law require.</li></ul>
+<p>After that we delete or anonymise the data. You can ask us to delete your account earlier (see section 8).</p>
+<h3>6. Sharing</h3>
+<p>We do not sell your personal data. We share it only with providers that help us run the business, such as the payment provider and hosting and email services, and where the law requires it. Some providers may process data outside your country, under appropriate safeguards where the law requires them.</p>
+<h3>7. Security</h3>
+<p>We use reasonable measures to protect the data we hold, including encrypted connections and hashed passwords. No system is completely secure.</p>
+<h3>8. Your rights</h3>
+<p>Depending on where you live, you may have the right to access, correct, delete or export your data, to object to or restrict its use, and to complain to your local data protection authority. Email <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a> to use these rights. If you are in India, you also have the rights given by the Digital Personal Data Protection Act, 2023, including to access, correct and erase your data and to complain. Our grievance contact is <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a>. We acknowledge complaints within 48 hours and aim to resolve them within 30 days. Deleting your account ends your license. We will respond within the time the law requires.</p>
+<h3>9. Children</h3>
+<p>KinetixisMM is not directed at children under 16 and we do not knowingly collect their data.</p>
+<h3>10. Changes</h3>
+<p>We may update this policy. The date at the top shows the latest version.</p></section>
 
-<section id="p-terms" data-t="Terms and license" hidden><h1>Terms of sale and license</h1>
-<ol><li><b>License.</b> After you pay, we grant you a non-exclusive, non-transferable license to install and use Model Merger for yourself on computers you own or control, for personal or commercial work.</li>
-<li><b>Limits.</b> Don’t resell, share or redistribute the app or your download link, and don’t remove notices. Open-source parts remain under their own licenses (see <a href="#licenses">Open-source notices</a>).</li>
-<li><b>Your models and data.</b> You are responsible for having the right to use the models you merge and for following their licenses. You own what you create, subject to those licenses. Merged models can be wrong or unsafe: test them before relying on them.</li>
-<li><b>Price and payment.</b> $29.99 USD, paid once, plus any taxes shown at checkout.</li>
-<li><b>Refunds.</b> As set out in the <a href="#refund">refund policy</a>.</li>
-<li><b>No warranty.</b> The app is provided “as is”, without warranties of any kind, to the extent the law allows.</li>
-<li><b>Liability.</b> To the extent the law allows, we are not liable for indirect or lost-data losses, and our total liability is limited to the price you paid.</li>
-<li><b>Changes and law.</b> We may update these terms for future sales. They are governed by the laws of <mark class="t">[your jurisdiction]</mark>.</li></ol><p class="mut">Last updated November 17, 2026.</p></section>
+<section id="p-terms" data-t="Terms of sale" hidden><h1>Terms of sale</h1><p class="mut">Last updated November 17, 2026</p>
+<p>These terms apply when you buy KinetixisMM from Kinetixis, Kawardha, Chhattisgarh, India. The license to use the Software is in the End User License Agreement (EULA), which you also accept.</p>
+<h3>1. Product and price</h3>
+<p>You are buying a license to KinetixisMM for Windows 10 and 11 (64-bit). The price is INR 1,299 (Indian Rupees), paid once, and includes applicable taxes unless the checkout page shows otherwise. It is not a subscription. Your purchase includes the version you download and any updates and fixes for that major version (for example 1.x) that we choose to release. Updates are at our discretion and we are not obliged to release any. New major versions may be sold separately.</p>
+<h3>2. Taxes and payment</h3>
+<p>Prices are in Indian Rupees (INR). Goods and Services Tax (GST) and other taxes are included in the price or shown at checkout, where they apply. Payment is processed by Razorpay, a third-party payment service. Kinetixis is the seller. Razorpay’s terms apply to the payment itself, and Kinetixis never sees your full card number or UPI PIN.</p>
+<h3>3. Delivery</h3>
+<p>The Software is delivered electronically. After payment you receive an email with a download link and your receipt, and we create your KinetixisMM account for the email address you used at checkout and tell you how to set your password. You need the account to use the Software. If nothing arrives within a few minutes, check your spam folder or contact us.</p>
+<h3>4. Your license</h3>
+<p>Your license starts when payment is complete and is governed by the EULA. Signing in needs an internet connection, as described in the EULA.</p>
+<h3>5. Refunds and cancellations</h3>
+<p>All sales are final. KinetixisMM is digital software that is delivered immediately after payment, so orders cannot be cancelled or returned once paid. Refunds are limited to the cases listed in the Refund and Cancellation Policy, for example a double charge or non-delivery. Where the law gives you additional rights, those rights apply.</p>
+<h3>6. Chargebacks</h3>
+<p>If you have a problem, please contact us first at <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a> so we can help. Disputed payments may lead to your license being suspended while the dispute is open.</p>
+<h3>7. Changes</h3>
+<p>We may change prices or these terms for future sales. Changes do not affect a purchase you have already completed.</p>
+<h3>8. Governing law</h3>
+<p>These terms are governed by the laws of India, and the courts at Kawardha, Chhattisgarh, India have jurisdiction over disputes, except that consumers keep any mandatory rights of their country of residence.</p>
+<h3>9. Contact</h3>
+<p>Kinetixis, Kawardha, Chhattisgarh, India. Email: <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a>. Complaints: write to the same address. We acknowledge them within 48 hours and aim to resolve them within 30 days.</p></section>
 
-<section id="p-licenses" data-t="Open-source notices" hidden><h1>Open-source notices</h1>
-<p>Kinetixis Model Merger includes open-source software. Thank you to its authors.</p>
-<ul><li>PyTorch (BSD-3-Clause), NumPy (BSD-3-Clause)</li><li>safetensors, Transformers and Tokenizers (Apache-2.0)</li><li>CustomTkinter (MIT)</li><li>Python (PSF License) and PyInstaller (GPL-2.0-or-later with its bootloader exception)</li></ul>
-<p>Their dependencies carry their own licenses. Full license texts are included with the app <mark class="t">[add the license files to your download]</mark>.</p>
-<p>The merge methods come from published research and public documentation, including the open-source MergeKit project. Model Merger is independent and is not affiliated with MergeKit, Arcee AI, Hugging Face or any model publisher. All trademarks belong to their owners.</p></section>
+<section id="p-licenses" data-t="Third-party notices" hidden><h1>Third-party notices</h1><p>KinetixisMM is proprietary, closed-source software owned by Kinetixis. It includes third-party components that remain under their own licenses. Those licenses require the credits below, and the full license texts are in the file <code>THIRD-PARTY-NOTICES.txt</code> that ships with the app. Thank you to their authors.</p><p>Python is included under the Python Software Foundation License, Tcl/Tk under its BSD-style license, and the packaging tool PyInstaller under GPL-2.0-or-later with its bootloader exception, which allows the packaged program to be distributed under any license.</p><ul class="tp"><li>annotated-doc 0.0.6 – MIT</li><li>annotated-types 0.8.0 – MIT</li><li>anyio 4.16.0 – MIT</li><li>click 8.5.1 – BSD-3-Clause</li><li>customtkinter 6.0.0 – Creative Commons Zero v1.0 Universal</li><li>darkdetect 0.8.0 – BSD-3-Clause</li><li>exceptiongroup 1.3.1 – MIT License</li><li>filelock 4.2.9 – MIT</li><li>fsspec 2026.9.0 – BSD-3-Clause</li><li>h11 0.16.0 – MIT</li><li>hf-xet 1.8.0 – Apache-2.0</li><li>httpcore2 2.16.0 – BSD-3-Clause</li><li>httpx2 2.16.0 – BSD-3-Clause</li><li>huggingface_hub 2.4.0 – Apache-2.0</li><li>idna 3.20 – BSD-3-Clause</li><li>Jinja2 3.1.6 – BSD License</li><li>markdown-it-py 4.3.0 – MIT License</li><li>MarkupSafe 3.0.4 – BSD-3-Clause</li><li>mdurl 0.1.2 – MIT License</li><li>mpmath 1.4.1 – BSD-3-Clause</li><li>networkx 3.7 – BSD-3-Clause</li><li>numpy 2.5.4 – BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0</li><li>packaging 26.3 – Apache-2.0 OR BSD-2-Clause</li><li>pydantic 2.14.3 – MIT</li><li>pydantic_core 2.50.4 – MIT</li><li>Pygments 2.21.0 – BSD-2-Clause</li><li>PyYAML 6.0.3 – MIT</li><li>regex 2026.11.15 – Apache-2.0 AND CNRI-Python</li><li>rich 15.0.0 – MIT</li><li>safetensors 0.8.0 – Apache Software License</li><li>setuptools 84.2.1 – MIT</li><li>shellingham 1.5.4 – ISC License</li><li>sympy 1.14.0 – BSD</li><li>tokenizers 0.23.3 – Apache Software License</li><li>tomli 2.5.0 – MIT</li><li>torch 2.14.1 – Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT</li><li>tqdm 4.70.1 – MPL-2.0 AND MIT</li><li>transformers 5.23.0 – Apache 2.0 License</li><li>truststore 0.10.5 – MIT</li><li>typer 0.29.1 – MIT</li><li>typing_extensions 4.16.0 – PSF-2.0</li><li>typing-inspection 0.4.5 – MIT</li></ul><p>The merge methods are based on published research and public documentation. KinetixisMM is independent and is not affiliated with MergeKit, Arcee AI, Hugging Face or any model publisher. All trademarks belong to their owners.</p></section>
 
 <section id="p-thanks" data-t="Thank you" hidden><h1>Thank you for your order</h1>
-<p>Your download link and receipt are on their way to your email. Check your spam folder if it doesn’t arrive within a few minutes.</p>
-<ol><li>Download the app from the link in your email.</li><li>Run it and wait for “Ready.”</li><li>Follow the <a href="#guide">getting started guide</a>.</li></ol><p>Questions? <a href="#support">Contact support</a>.</p></section>
+<p>Your download link, receipt and account details are on their way to your email. You sign in to the app with that email address. Check your spam folder if it doesn’t arrive within a few minutes.</p>
+<ol><li>Download the app from the link in your email.</li><li>Run it, sign in with your email and password, and wait for “Ready.”</li><li>Follow the <a href="#guide">getting started guide</a>.</li></ol><p>Questions? <a href="#support">Contact support</a>.</p></section>
+<section id="p-eula" data-t="License agreement" hidden><h1>License agreement (EULA)</h1><p class="mut">Version 1.1 - Last updated November 19, 2026</p>
+<p>IMPORTANT: Please read this agreement carefully. By installing, copying or using KinetixisMM (the “Software”), or by clicking “Accept”, you agree to be bound by it. If you do not agree, do not install or use the Software.</p>
+<h3>1. Parties</h3>
+<p>This agreement is between you (the individual or organization that purchased the Software) and Kinetixis, Kawardha, Chhattisgarh, India (“Kinetixis”, “we”, “us”).</p>
+<h3>2. License grant</h3>
+<p>Subject to this agreement and payment of the purchase price, Kinetixis grants you a non-exclusive, non-transferable, non-sublicensable, revocable license to install and use one copy of the Software, in object-code form, for your internal personal or commercial purposes, on computers that you own or control. One license covers one person. Organizations must buy one license per user.</p>
+<p>Account and sign-in. Using the Software requires a KinetixisMM account that we create for your purchase. You must sign in with the account’s email address and password, keep them confidential, and not share them. One account may be used on up to 3 computers at the same time. Signing in needs an internet connection the first time and at least every 14 days; between sign-ins the Software works offline. We may suspend or end an account that breaches this agreement.</p>
+<h3>3. Restrictions</h3>
+<p>You may not, and may not allow anyone else to:</p>
+<ul><li>copy, sell, rent, lease, lend, sublicense, distribute or share the Software, your license, or your download link, except for one backup copy;</li><li>reverse engineer, decompile, disassemble or try to obtain the source code of the Software, except to the extent that applicable law allows it despite this restriction or a third-party license requires it;</li><li>modify the Software or create derivative works of it, or remove or change any copyright, trademark or license notice;</li><li>circumvent any technical limit of the Software, or use it in breach of law or third-party rights.</li></ul>
+<h3>4. Ownership; closed source</h3>
+<p>The Software is proprietary, closed-source software. Kinetixis and its licensors own all rights, title and interest in it, including its source code, which is not provided to you and which you have no right to receive. The Software is licensed, not sold. We reserve all rights not expressly granted.</p>
+<h3>5. Third-party components</h3>
+<p>The Software includes third-party components that are licensed to Kinetixis under their own terms. They are listed, with their license texts, in the file THIRD-PARTY-NOTICES.txt and on our website. Nothing in this agreement limits any rights you have under those licenses for those components.</p>
+<h3>6. Your models, data and outputs</h3>
+<p>The Software works on AI models and other files that you supply. You are solely responsible for having the right to use, copy, modify and combine them, and for following their licenses (including any use restrictions). Kinetixis does not provide, review or endorse any model. Subject to those licenses, you own the files the Software creates for you. Merged or modified models can be inaccurate, biased or unsafe, and results are not guaranteed: test them before relying on them.</p>
+<h3>7. Privacy</h3>
+<p>The Software runs on your computer. To sign in, it sends your account email and password, a random identifier of your computer, the computer name and the Software version to our sign-in server. It does not send your models, files, settings or usage data. See the Privacy Policy for details.</p>
+<h3>8. Updates and support</h3>
+<p>We may, but are not obliged to, release updates, fixes or new versions. Updates and fixes for the major version you bought (for example 1.x) that we choose to release are included at no extra charge. We may charge for new major versions, may change, add or remove features, and may stop supporting or distributing any version on reasonable notice. Support is provided by email at <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a>, is limited to the current version, and is given on a reasonable-efforts basis with a first reply within 7 days.</p>
+<h3>9. Term and termination</h3>
+<p>This agreement lasts until terminated. You may end it at any time by uninstalling and deleting the Software. We may terminate it if you materially breach it and do not fix the breach within 14 days of notice (immediately for a breach of section 3). On termination you must stop using the Software and delete all copies. Sections 3 to 6 and 10 to 14 survive termination.</p>
+<h3>10. Disclaimer of warranties</h3>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, NON-INFRINGEMENT, OR THAT THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE OR THAT ANY MODEL IT CREATES WILL PERFORM AS EXPECTED. Some places do not allow these exclusions, so they may not apply to you.</p>
+<h3>11. Limitation of liability</h3>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, KINETIXIS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, LOST DATA OR BUSINESS INTERRUPTION, EVEN IF ADVISED OF THEIR POSSIBILITY. OUR TOTAL LIABILITY FOR ALL CLAIMS RELATING TO THE SOFTWARE WILL NOT EXCEED THE PRICE YOU PAID FOR IT. Nothing in this agreement limits liability that cannot be limited by law, such as for fraud or for death or personal injury caused by negligence, or your statutory consumer rights.</p>
+<h3>12. Export and compliance</h3>
+<p>You must follow all export-control and sanctions laws that apply to your use of the Software and must not use it where it is prohibited.</p>
+<h3>13. Governing law</h3>
+<p>This agreement is governed by the laws of India, without regard to conflict-of-law rules, and the courts at Kawardha, Chhattisgarh, India have exclusive jurisdiction, except that consumers keep any mandatory rights of their country of residence.</p>
+<h3>14. General</h3>
+<p>This is the entire agreement about the Software and replaces earlier understandings. If a part is unenforceable, the rest stays in force. Not enforcing a right is not a waiver of it. You may not assign this agreement without our written consent; we may assign it to a successor. We may update this agreement for future versions of the Software; the version delivered with your copy applies to it.</p>
+<h3>15. Contact</h3>
+<p>Kinetixis, Kawardha, Chhattisgarh, India. Email: <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a></p></section>
 </main>
-<footer><div class="w"><a href="#guide">Guide</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#licenses">Open-source notices</a>
-<p>© 2026 <mark class="t">[Kinetixis]</mark>. Model Merger is for Windows 10 and 11.</p></div></footer>
+<footer><div class="w"><a href="#guide">Guide</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#privacy">Privacy</a><a href="#terms">Terms of sale</a><a href="#eula">License agreement</a><a href="#licenses">Third-party notices</a>
+<p>© 2026 Kinetixis. KinetixisMM is for Windows 10 and 11.</p></div></footer>
 <script>
 const CHECKOUT="";
 const S=[...document.querySelectorAll("main>section")],L=[...document.querySelectorAll("header nav a")];
 function go(){const h=location.hash.slice(1)||"home",s=S.find(x=>x.id==="p-"+h)||S[0];S.forEach(x=>x.hidden=x!==s);
 L.forEach(a=>a.hash==="#"+s.id.slice(2)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
-document.title=(s.dataset.t?s.dataset.t+" – ":"")+"Model Merger";scrollTo(0,0)}
+document.title=(s.dataset.t?s.dataset.t+" – ":"")+"KinetixisMM";scrollTo(0,0)}
 addEventListener("hashchange",go);go();
 document.querySelectorAll(".buy").forEach(a=>{if(CHECKOUT)a.href=CHECKOUT});
 document.querySelectorAll(".setup").forEach(e=>{if(CHECKOUT)e.remove()});
-let h='<svg viewBox="0 0 360 150" role="img" aria-label="Model A and Model B feed a merged model that takes each layer from whichever model scores better">';
-[["Model A",20,"AAAAAAAA"],["Model B",140,"BBBBBBBB"],["Merged",260,"ABBABAAB"]].forEach(([t,x,p])=>{h+=`<text x="${x}" y="12">${t}</text>`;
-[...p].forEach((k,i)=>h+=`<rect x="${x}" y="${20+i*16}" width="80" height="11" rx="2" class="${k.toLowerCase()}"/>`)});
+let h='<svg viewBox="0 0 360 170" role="img" aria-label="Model A and Model B feed a merged model that takes each layer from whichever model scores better">';
+[["Model A",8,"AAAAAAAA"],["Model B",138,"BBBBBBBB"],["Merged",268,"ABBABAAB"]].forEach(([t,x,p])=>{h+=`<text x="${x}" y="14">${t}</text>`;
+[...p].forEach((k,i)=>h+=`<rect x="${x}" y="${24+i*18}" width="84" height="13" rx="6.5" class="${k.toLowerCase()}"/>`)});
+h+='<path d="M98 96h26m-6-6 6 6-6 6M228 96h26m-6-6 6 6-6 6"/>';
 document.getElementById("viz").innerHTML=h+"</svg>";
 </script></body></html>
