@@ -38,6 +38,10 @@ summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-cont
 ul,ol{padding-left:1.3em}li{margin:.4em 0}code{background:var(--pn);border:1px solid var(--ln);padding:.05em .45em;border-radius:6px;font-size:.88em}
 footer{border-top:1px solid var(--ln);padding:28px 0 44px;color:var(--mut);font-size:.9rem}footer a{margin-right:18px;display:inline-block;text-decoration:none}footer a:hover{color:var(--fg)}
 ul.tp{columns:2 260px;font-size:.88rem;padding-left:1.2em}
+
+.tabs{display:flex;gap:8px;margin-bottom:1em}.tab{font:inherit;cursor:pointer;border:1px solid var(--ln);background:var(--pn);color:var(--fg);padding:.4em 1em;border-radius:999px}.tab[aria-pressed=true]{background:var(--g);color:var(--bt);border-color:transparent}
+.authbox label{display:block;margin:.8em 0;font-weight:500}.authbox input{display:block;width:100%;margin-top:.3em;padding:.7em .9em;border-radius:12px;border:1px solid var(--ln);background:var(--bg);color:var(--fg);font:inherit}
+button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a[hidden]{display:none}
 </style></head><body>
 <header><div class="w bar"><a class="logo" href="#home">Kinetixis<span>MM</span></a>
 <nav aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#guide">Guide</a><a href="#faq">FAQ</a><a href="#support">Support</a></nav>
@@ -68,11 +72,10 @@ ul.tp{columns:2 260px;font-size:.88rem;padding-left:1.2em}
 
 <section id="p-pricing" data-t="Pricing" hidden><h1>Pricing</h1>
 <div class="price"><b>₹1,299</b> <span class="mut">one-time, INR, taxes included</span>
-<ul><li>KinetixisMM for Windows 10 and 11</li><li>All merge methods and tools listed on this site</li><li>The user guide and email support</li><li>Use for personal or commercial projects</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li><li>Proprietary, closed-source software</li></ul>
+<ul><li>KinetixisMM for Windows 10 and 11</li><li>All merge methods and tools listed on this site</li><li>The user guide and email support</li><li>Use for personal or commercial projects</li><li>A KinetixisMM account, used on up to 3 computers</li><li>Proprietary, closed-source software</li></ul>
 <p class="note">At checkout, enter the email address you want to use for your KinetixisMM account. We send your download link and sign-in details to it.</p>
 <p><a class="btn buy" href="#pricing">Buy now</a></p><p class="mut">By buying you agree to the <a href="#terms">Terms of sale</a> and the <a href="#eula">license agreement</a>.</p>
 <p class="mut">Secure checkout by Razorpay. Prices are in Indian Rupees and include applicable taxes. Includes updates and fixes for this major version at our discretion; new major versions may be sold separately.</p></div>
-<p class="note setup">Setup needed: add your payment link to <code>CHECKOUT</code> in the page’s script. Until then the buy buttons stay on this page.</p>
 <h2>Before you buy</h2><ul><li>Windows 10 or 11, 64-bit. Not available for Mac or Linux.</li><li>Free disk space about the size of the model you create.</li><li>Merging uses little memory. Task mode needs enough RAM to load one model.</li><li>All sales are final. Please read these requirements and the <a href="#refund">refund policy</a> before you buy.</li></ul></section>
 
 <section id="p-guide" data-t="Guide" hidden><h1>Getting started</h1>
@@ -209,18 +212,84 @@ ul.tp{columns:2 260px;font-size:.88rem;padding-left:1.2em}
 <h3>4. Delivery area</h3>
 <p>Worldwide, wherever the payment is accepted. Delivery is electronic only.</p></section>
 <section id="p-about" data-t="About us" hidden><h1>About us</h1><p>KinetixisMM is made by Kinetixis, based in Kawardha, Chhattisgarh, India. It is a Windows program that combines AI models on your own computer: you pay once, your models stay on your computer, and you can always reach us by email.</p><p>Kinetixis, Kawardha, Chhattisgarh, India<br>Email: <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a></p><p><a href="#pricing">See pricing</a> &nbsp; <a href="#support">Contact us</a></p></section>
+
+<section id="p-signin" data-t="Sign in" hidden><h1>Create your account</h1>
+<p class="lead">Sign in or create a KinetixisMM account. You will confirm your email, then pay securely with Razorpay.</p>
+<div class="price authbox"><div class="tabs"><button type="button" class="tab" data-m="signup" aria-pressed="true">Create account</button><button type="button" class="tab" data-m="login" aria-pressed="false">Sign in</button></div>
+<div id="authf"><label>Email<input id="em" type="email" autocomplete="email" required></label>
+<label>Password<input id="pw" type="password" autocomplete="current-password" minlength="8" required></label>
+<p class="mut" id="pwh">At least 8 characters.</p>
+<p><button type="button" class="btn" id="authgo">Create account</button></p></div>
+<p id="amsg" class="note" role="status" hidden></p>
+<p class="mut"><a href="#" id="forgot" hidden>Resend confirmation email</a></p></div></section>
+
+<section id="p-checkout" data-t="Continue to payment" hidden><h1>Confirm your email</h1>
+<div class="price"><p id="comsg" class="lead">Checking your account…</p>
+<p><button type="button" class="btn" id="paynow" hidden>Pay ₹1,299 with Razorpay</button> <button type="button" class="btn o" id="resend" hidden>Resend confirmation email</button></p></div></section>
+
+<section id="p-thanks" data-t="Payment received" hidden><h1>Payment received</h1>
+<div class="price"><p id="thmsg" class="lead">Confirming your payment…</p>
+<p class="mut">This usually takes a few seconds. A receipt and your sign-in details are also emailed to you.</p></div></section>
+
+<section id="p-download" data-t="Download" hidden><h1>Download KinetixisMM</h1>
+<div class="price"><p id="dlmsg" class="lead">Checking your purchase…</p>
+<p><a class="btn" id="dlbtn" href="#download" hidden>Download for Windows</a></p>
+<p class="mut">Windows 10 or 11. Sign in inside the app with the email and password you created here. If the download did not start, press the button.</p>
+<p><a href="#" id="logout">Sign out</a></p></div></section>
 </main>
 <footer><div class="w"><a href="#guide">Guide</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#terms">Terms of sale</a><a href="#delivery">Delivery policy</a><a href="#eula">License agreement</a><a href="#licenses">Third-party notices</a>
 <p>© 2026 Kinetixis. KinetixisMM is for Windows 10 and 11.</p></div></footer>
 <script>
-const CHECKOUT="";
 const S=[...document.querySelectorAll("main>section")],L=[...document.querySelectorAll("header nav a")];
 function go(){const h=location.hash.slice(1)||"home",s=S.find(x=>x.id==="p-"+h)||S[0];S.forEach(x=>x.hidden=x!==s);
 L.forEach(a=>a.hash==="#"+s.id.slice(2)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
 document.title=(s.dataset.t?s.dataset.t+" – ":"")+"KinetixisMM";scrollTo(0,0)}
 addEventListener("hashchange",go);go();
-document.querySelectorAll(".buy").forEach(a=>{if(CHECKOUT)a.href=CHECKOUT});
-document.querySelectorAll(".setup").forEach(e=>{if(CHECKOUT)e.remove()});
+
+const API="https://auth.kinetixis.com",PAYMENT_LINK="https://rzp.io/rzp/Pg0fxAF";
+const $=id=>document.getElementById(id);
+const tok={get:()=>{try{return localStorage.getItem("kmm_t")}catch(e){return null}},set:v=>{try{v?localStorage.setItem("kmm_t",v):localStorage.removeItem("kmm_t")}catch(e){}}};
+async function api(path,body){const o={headers:{"Content-Type":"application/json"}};if(body){o.method="POST";o.body=JSON.stringify(body)}
+ const t=tok.get();if(t)o.headers.Authorization="Bearer "+t;
+ try{const r=await fetch(API+path,o);const j=await r.json().catch(()=>({}));return{ok:r.ok,status:r.status,...j}}catch(e){return{ok:false,error:"Could not reach the server. Check your connection and try again."}}}
+function say(el,t){el.textContent=t;el.hidden=!t}
+let mode="signup";
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-pressed",x===b));
+ $("authgo").textContent=mode==="signup"?"Create account":"Sign in";$("pwh").hidden=mode!=="signup";$("pw").autocomplete=mode==="signup"?"new-password":"current-password";say($("amsg"),"")});
+$("authgo").onclick=async()=>{const email=$("em").value.trim(),password=$("pw").value,m=$("amsg");
+ if(!email||password.length<8){say(m,"Enter your email and a password of at least 8 characters.");return}
+ $("authgo").disabled=true;say(m,"Please wait…");
+ const r=await api(mode==="signup"?"/api/signup":"/api/login",{email,password});$("authgo").disabled=false;
+ if(!r.ok){say(m,r.error||"Something went wrong.");$("forgot").hidden=!r.unverified;return}
+ if(r.token)tok.set(r.token);
+ if(mode==="signup"){say(m,"Account created. We sent a confirmation link to "+email+". Open it to continue to payment.");return}
+ location.hash="#checkout"};
+$("forgot").onclick=async e=>{e.preventDefault();const r=await api("/api/resend",{email:$("em").value.trim()});say($("amsg"),r.message||r.error||"Sent if the account exists.")};
+function buy(e){e.preventDefault();location.hash=tok.get()?"#checkout":"#signin"}
+document.querySelectorAll(".buy").forEach(a=>a.addEventListener("click",buy));
+async function me(){return tok.get()?await api("/api/me"):{ok:false}}
+async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");pay.hidden=rs.hidden=true;
+ const u=await me();if(!u.ok){tok.set(null);location.hash="#signin";return}
+ if(u.paid){location.hash="#download";return}
+ if(!u.verified){say(m,"Please confirm your email first. We sent a link to "+u.email+". Open it, then come back here.");rs.hidden=false;return}
+ say(m,"Email confirmed. Use "+u.email+" at checkout so we can match your payment.");pay.hidden=false;
+ pay.onclick=()=>{location.href=PAYMENT_LINK+"?email="+encodeURIComponent(u.email)}
+ rs.onclick=async()=>{const r=await api("/api/resend",{email:u.email});say(m,r.message||r.error)}}
+let pollT;
+async function pageThanks(){const m=$("thmsg");let n=0;clearInterval(pollT);
+ const tick=async()=>{const u=await me();if(!u.ok){say(m,"Please sign in to see your purchase.");clearInterval(pollT);location.hash="#signin";return}
+  if(u.paid){clearInterval(pollT);location.hash="#download";return}
+  if(++n>40){clearInterval(pollT);say(m,"We have not seen your payment yet. If you paid, it can take a few minutes. Contact arjan@kinetixis.com with your payment ID.")}};
+ await tick();pollT=setInterval(tick,3000)}
+async function pageDownload(){const m=$("dlmsg"),b=$("dlbtn");b.hidden=true;
+ const u=await me();if(!u.ok){location.hash="#signin";return}
+ if(!u.paid){location.hash="#checkout";return}
+ const r=await api("/api/download-link");if(!r.ok){say(m,r.error||"Could not prepare the download.");return}
+ say(m,"Thank you. Your download is starting.");b.hidden=false;b.href=r.url;
+ if(!sessionStorage.getItem("kmm_dl")){try{sessionStorage.setItem("kmm_dl","1")}catch(e){}setTimeout(()=>{location.href=r.url},600)}}
+$("logout").onclick=e=>{e.preventDefault();tok.set(null);try{sessionStorage.removeItem("kmm_dl")}catch(x){}location.hash="#home"};
+function route(){const h=location.hash.slice(1);if(h==="checkout")pageCheckout();else if(h==="thanks")pageThanks();else if(h==="download")pageDownload();else if(h==="signin")say($("amsg"),"")}
+addEventListener("hashchange",route);route();
 let h='<svg viewBox="0 0 360 170" role="img" aria-label="Model A and Model B feed a merged model that takes each layer from whichever model scores better">';
 [["Model A",8,"AAAAAAAA"],["Model B",138,"BBBBBBBB"],["Merged",268,"ABBABAAB"]].forEach(([t,x,p])=>{h+=`<text x="${x}" y="14">${t}</text>`;
 [...p].forEach((k,i)=>h+=`<rect x="${x}" y="${24+i*18}" width="84" height="13" rx="6.5" class="${k.toLowerCase()}"/>`)});
