@@ -260,21 +260,23 @@ $("authgo").onclick=async()=>{const email=$("em").value.trim(),password=$("pw").
  if(!email||password.length<8){say(m,"Enter your email and a password of at least 8 characters.");return}
  $("authgo").disabled=true;say(m,"Please wait…");
  const r=await api(mode==="signup"?"/api/signup":"/api/login",{email,password});$("authgo").disabled=false;
- if(!r.ok){say(m,r.error||"Something went wrong.");$("forgot").hidden=!r.unverified;return}
+ if(!r.ok){say(m,r.error||"Something went wrong.");return}
  if(r.token)tok.set(r.token);
  if(mode==="signup"){say(m,"Account created. We sent a confirmation link to "+email+". Open it to continue to payment.");return}
  location.hash="#checkout"};
-$("forgot").onclick=async e=>{e.preventDefault();const r=await api("/api/resend",{email:$("em").value.trim()});say($("amsg"),r.message||r.error||"Sent if the account exists.")};
+$("forgot").hidden=false;
+$("forgot").onclick=async e=>{e.preventDefault();const em=$("em").value.trim();if(!em){say($("amsg"),"Type your email above first.");return}const r=await api("/api/resend",{email:em});say($("amsg"),r.ok?"If that account still needs confirming, we sent a new link. Check your inbox and spam folder.":(r.error||"Could not send. Try again in a minute."))};
 function buy(e){e.preventDefault();location.hash=tok.get()?"#checkout":"#signin"}
 document.querySelectorAll(".buy").forEach(a=>a.addEventListener("click",buy));
 async function me(){return tok.get()?await api("/api/me"):{ok:false}}
 async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");pay.hidden=rs.hidden=true;
  const u=await me();if(!u.ok){tok.set(null);location.hash="#signin";return}
  if(u.paid){location.hash="#download";return}
+ rs.onclick=async()=>{rs.disabled=true;say(m,"Sending…");const r=await api("/api/resend",{email:u.email});say(m,r.ok?"A new confirmation link was sent to "+u.email+". Check your inbox and spam folder.":(r.error||"Could not send. Try again in a minute."));setTimeout(()=>{rs.disabled=false},30000)};
  if(!u.verified){say(m,"Please confirm your email first. We sent a link to "+u.email+". Open it, then come back here.");rs.hidden=false;return}
  say(m,"Email confirmed. Use "+u.email+" at checkout so we can match your payment.");pay.hidden=false;
  pay.onclick=()=>{location.href=PAYMENT_LINK+"?email="+encodeURIComponent(u.email)}
- rs.onclick=async()=>{const r=await api("/api/resend",{email:u.email});say(m,r.message||r.error)}}
+}
 let pollT;
 async function pageThanks(){const m=$("thmsg");let n=0;clearInterval(pollT);
  const tick=async()=>{const u=await me();if(!u.ok){say(m,"Please sign in to see your purchase.");clearInterval(pollT);location.hash="#signin";return}
