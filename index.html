@@ -228,8 +228,8 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 <p><button type="button" class="btn" id="paynow" hidden>Pay ₹1,299 with Razorpay</button> <button type="button" class="btn o" id="resend" hidden>Resend confirmation email</button> <button type="button" class="btn o" id="switchem" hidden>Wrong email? Start again</button></p></div></section>
 
 <section id="p-thanks" data-t="Payment received" hidden><h1>Payment received</h1>
-<div class="price"><p id="thmsg" class="lead">Confirming your payment…</p>
-<p class="mut">This usually takes a few seconds. A receipt and your sign-in details are also emailed to you.</p></div></section>
+<div class="price"><p id="thmsg" class="lead">Confirming your payment. Your download will start automatically…</p>
+<p class="mut">This usually takes a few seconds. Keep this page open. A receipt is also emailed to you.</p></div></section>
 
 <section id="p-download" data-t="Download" hidden><h1>Download KinetixisMM</h1>
 <div class="price"><p id="dlmsg" class="lead">Checking your purchase…</p>
@@ -282,7 +282,7 @@ async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");
 let pollT;
 async function pageThanks(){const m=$("thmsg");let n=0;clearInterval(pollT);
  const tick=async()=>{const u=await me();if(!u.ok){say(m,"Please sign in to see your purchase.");clearInterval(pollT);location.hash="#signin";return}
-  if(u.paid){clearInterval(pollT);location.hash="#download";return}
+  if(u.paid){clearInterval(pollT);try{sessionStorage.removeItem("kmm_dl")}catch(e){}location.hash="#download";return}
   if(++n>40){clearInterval(pollT);say(m,"We have not seen your payment yet. If you paid, it can take a few minutes. Contact arjan@kinetixis.com with your payment ID.")}};
  await tick();pollT=setInterval(tick,3000)}
 async function pageDownload(){const m=$("dlmsg"),b=$("dlbtn");b.hidden=true;
