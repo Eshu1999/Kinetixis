@@ -225,7 +225,7 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 
 <section id="p-checkout" data-t="Continue to payment" hidden><h1>Confirm your email</h1>
 <div class="price"><p id="comsg" class="lead">Checking your account…</p>
-<p><button type="button" class="btn" id="paynow" hidden>Pay ₹1,299 with Razorpay</button> <button type="button" class="btn o" id="resend" hidden>Resend confirmation email</button></p></div></section>
+<p><button type="button" class="btn" id="paynow" hidden>Pay ₹1,299 with Razorpay</button> <button type="button" class="btn o" id="resend" hidden>Resend confirmation email</button> <button type="button" class="btn o" id="switchem" hidden>Wrong email? Start again</button></p></div></section>
 
 <section id="p-thanks" data-t="Payment received" hidden><h1>Payment received</h1>
 <div class="price"><p id="thmsg" class="lead">Confirming your payment…</p>
@@ -258,6 +258,8 @@ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{mode=b.dataset.m;doc
  $("authgo").textContent=mode==="signup"?"Create account":"Sign in";$("pwh").hidden=mode!=="signup";$("pw").autocomplete=mode==="signup"?"new-password":"current-password";say($("amsg"),"")});
 $("authgo").onclick=async()=>{const email=$("em").value.trim(),password=$("pw").value,m=$("amsg");
  if(!email||password.length<8){say(m,"Enter your email and a password of at least 8 characters.");return}
+ if(mode==="signup"){const dom=email.split("@")[1].toLowerCase(),fix={"gamil.com":"gmail.com","gmial.com":"gmail.com","gmai.com":"gmail.com","gmail.co":"gmail.com","gmail.con":"gmail.com","gnail.com":"gmail.com","yahooo.com":"yahoo.com","yaho.com":"yahoo.com","hotmial.com":"hotmail.com","outlok.com":"outlook.com"};
+  if(fix[dom]){say(m,"Did you mean "+email.split("@")[0]+"@"+fix[dom]+"? Please correct your email and try again.");return}}
  $("authgo").disabled=true;say(m,"Please wait…");
  const r=await api(mode==="signup"?"/api/signup":"/api/login",{email,password});$("authgo").disabled=false;
  if(!r.ok){say(m,r.error||"Something went wrong.");return}
@@ -269,11 +271,11 @@ $("forgot").onclick=async e=>{e.preventDefault();const em=$("em").value.trim();i
 function buy(e){e.preventDefault();location.hash=tok.get()?"#checkout":"#signin"}
 document.querySelectorAll(".buy").forEach(a=>a.addEventListener("click",buy));
 async function me(){return tok.get()?await api("/api/me"):{ok:false}}
-async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");pay.hidden=rs.hidden=true;
+async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");pay.hidden=rs.hidden=true;const sw=$("switchem");sw.hidden=true;sw.onclick=()=>{tok.set(null);location.hash="#signin"};
  const u=await me();if(!u.ok){tok.set(null);location.hash="#signin";return}
  if(u.paid){location.hash="#download";return}
  rs.onclick=async()=>{rs.disabled=true;say(m,"Sending…");const r=await api("/api/resend",{email:u.email});say(m,r.ok?"A new confirmation link was sent to "+u.email+". Check your inbox and spam folder.":(r.error||"Could not send. Try again in a minute."));setTimeout(()=>{rs.disabled=false},30000)};
- if(!u.verified){say(m,"Please confirm your email first. We sent a link to "+u.email+". Open it, then come back here.");rs.hidden=false;return}
+ if(!u.verified){say(m,"Please confirm your email first. We sent a link to "+u.email+". Open it, then come back here.");rs.hidden=false;sw.hidden=false;return}
  say(m,"Email confirmed. Use "+u.email+" at checkout so we can match your payment.");pay.hidden=false;
  pay.onclick=()=>{location.href=PAYMENT_LINK+"?email="+encodeURIComponent(u.email)}
 }
