@@ -226,7 +226,8 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 
 <section id="p-thanks" data-t="Payment received" hidden><h1>Payment received</h1>
 <div class="price"><p id="thmsg" class="lead">Confirming your payment. Your download will start automatically…</p>
-<p class="mut">This usually takes a few seconds. Keep this page open. A receipt is also emailed to you.</p></div></section>
+<p class="mut">This usually takes a few seconds. Keep this page open. A receipt is also emailed to you.</p>
+<p><button type="button" class="btn o" id="rechk" hidden>I have paid: check again</button></p></div></section>
 
 <section id="p-download" data-t="Download" hidden><h1>Download KinetixisMM</h1>
 <div class="price"><p id="dlmsg" class="lead">Checking your purchase…</p>
@@ -282,10 +283,13 @@ async function pageCheckout(){const m=$("comsg"),pay=$("paynow"),rs=$("resend");
  pay.onclick=()=>{location.href=PAYMENT_LINK+"?email="+encodeURIComponent(u.email)}
 }
 let pollT;
-async function pageThanks(){const m=$("thmsg");let n=0;clearInterval(pollT);
+async function pageThanks(){const m=$("thmsg"),rb=$("rechk");let n=0;clearInterval(pollT);rb.hidden=true;
+ const done=()=>{isPaid=true;paintBuy();clearInterval(pollT);try{sessionStorage.removeItem("kmm_dl")}catch(e){}location.hash="#download"};
  const tick=async()=>{const u=await me();if(!u.ok){say(m,"Please sign in to see your purchase.");clearInterval(pollT);location.hash="#signin";return}
-  if(u.paid){isPaid=true;paintBuy();clearInterval(pollT);try{sessionStorage.removeItem("kmm_dl")}catch(e){}location.hash="#download";return}
-  if(++n>40){clearInterval(pollT);say(m,"We have not seen your payment yet. If you paid, it can take a few minutes. Contact arjan@kinetixis.com with your payment ID.")}};
+  if(u.paid)return done();
+  const c=await api("/api/check-payment");if(c.ok&&c.paid)return done();
+  if(++n>40){clearInterval(pollT);say(m,"We have not seen your payment yet. Make sure you paid with the same email as your account ("+u.email+"). If you paid with a different email, contact arjan@kinetixis.com with your payment ID.");rb.hidden=false}};
+ rb.onclick=()=>{say(m,"Checking again…");pageThanks()};
  await tick();pollT=setInterval(tick,3000)}
 async function pageDownload(){const m=$("dlmsg"),b=$("dlbtn");b.hidden=true;
  const u=await me();if(!u.ok){location.hash="#signin";return}
