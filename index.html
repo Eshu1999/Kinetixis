@@ -53,9 +53,19 @@ ul.tp{columns:2 260px;font-size:.88rem;padding-left:1.2em}
 .tabs{display:flex;gap:8px;margin-bottom:1em}.tab{font:inherit;cursor:pointer;border:1px solid var(--ln);background:var(--pn);color:var(--fg);padding:.4em 1em;border-radius:999px}.tab[aria-pressed=true]{background:var(--g);color:var(--bt);border-color:transparent}
 .authbox label{display:block;margin:.8em 0;font-weight:500}.authbox input{display:block;width:100%;margin-top:.3em;padding:.7em .9em;border-radius:12px;border:1px solid var(--ln);background:var(--bg);color:var(--fg);font:inherit}
 button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a[hidden]{display:none}
+.how{list-style:none;padding:0;counter-reset:h;max-width:760px}.how>li{counter-increment:h;position:relative;margin:0 0 26px;padding:0 0 0 54px;max-width:none}
+.how>li::before{content:counter(h);position:absolute;left:0;top:0;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--g);color:var(--bt);font:600 1rem Outfit,sans-serif}
+.how>li h2{margin:.1em 0 .4em;font-size:1.25rem}.how figure{margin:14px 0}.how img{display:block;max-width:100%;height:auto;border-radius:14px;border:1px solid var(--ln);box-shadow:var(--sh)}
+.how .sub{padding-left:1.3em;list-style:decimal}.how .sub li{margin:.3em 0;max-width:none}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:1em 0 1.6em}.jump button{font:inherit;font-size:.9rem;cursor:pointer;border:1px solid var(--ln);background:var(--pn);color:var(--fg);padding:.35em .9em;border-radius:999px}.jump button:hover{border-color:var(--a)}
+#p-merging h2{scroll-margin-top:90px}#p-merging figure{margin:14px 0}#p-merging img{display:block;max-width:100%;height:auto;border-radius:14px;border:1px solid var(--ln);box-shadow:var(--sh)}#p-merging figcaption{font-size:.85rem;color:var(--mut);margin-top:6px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:12px 0 22px}.mth{background:var(--pn);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;max-width:none}.mth h4{margin:0 0 .5em;font-size:1.05rem}.mth p{margin:.4em 0;max-width:none;font-size:.95rem}
+.tag{display:inline-block;margin-left:6px;padding:.1em .6em;border-radius:999px;border:1px solid var(--ln);font:500 .72rem Inter,sans-serif;color:var(--mut);vertical-align:middle}
+#p-merging .sub{padding-left:1.3em;list-style:decimal}#p-merging .sub li{margin:.4em 0;max-width:none}
+table.pick{width:100%;border-collapse:collapse;margin:10px 0 22px;font-size:.95rem}table.pick th,table.pick td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--ln);vertical-align:top}table.pick th{color:var(--mut);font-weight:600}
 </style></head><body>
 <header><div class="w bar"><a class="logo" href="#home">Kinetixis<span>MM</span></a>
-<nav aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#guide">Guide</a><a href="#faq">FAQ</a><a href="#support">Support</a></nav>
+<nav aria-label="Main"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#guide">Guide</a><a href="#howto">How to install</a><a href="#merging">How to merge</a><a href="#faq">FAQ</a><a href="#support">Support</a></nav>
 <a class="btn sm buy" href="#pricing">Buy ₹1,299</a></div></header>
 <main class="w">
 
@@ -68,7 +78,7 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Pick the better model for your task</h3><p>Give it examples of the skill you care about. It tests both models and keeps the better one for each layer. No averaging.</p></div>
 <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5"/></svg></span><h3>Tools around it</h3><p>Apply or extract LoRA adapters, stack layers from different models, and check how well two models fit before you merge.</p></div></div>
 <h2>What is the Kinetixis AI Merger?</h2>
-<p>Kinetixis makes KinetixisMM, an AI model merger for Windows. A model merger combines the weights of several trained models into a single new model, so you can mix their strengths without training from scratch. KinetixisMM supports 20 merge methods, works layer by layer on large models, and keeps your originals untouched.</p>
+<p>Kinetixis makes KinetixisMM, an AI model merger for Windows. A model merger combines the weights of several trained models into a single new model, so you can mix their strengths without training from scratch. KinetixisMM supports many merge methods, works layer by layer on large models, and keeps your originals untouched.</p>
 <h2>How it works</h2>
 <ol class="steps"><li>Choose your models. Shards and common formats work: <code>.safetensors</code>, <code>.pt</code>, <code>.pth</code>, <code>.bin</code>, <code>.ckpt</code>.</li><li>Pick a method, or press <b>Check compatibility</b> or <b>Analyze models</b> first.</li><li>Press <b>Merge models</b>. You get a new model file next to your first one, plus a report. Your originals are never changed.</li></ol>
 <p class="note">A merge can turn out worse than either original model. The analysis and the held-back check in task mode help, but always test the result.</p>
@@ -223,6 +233,142 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 <p>Worldwide, wherever the payment is accepted. Delivery is electronic only.</p></section>
 <section id="p-about" data-t="About us" hidden><h1>About us</h1><p>KinetixisMM is made by Kinetixis, based in Kawardha, Chhattisgarh, India. It is a Windows program that combines AI models on your own computer: you pay once, your models stay on your computer, and you can always reach us by email.</p><p>Kinetixis, Kawardha, Chhattisgarh, India<br>Email: <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a></p><p><a href="#pricing">See pricing</a> &nbsp; <a href="#support">Contact us</a></p></section>
 
+<section id="p-howto" data-t="How to download and install" hidden><h1>How to download and install KinetixisMM</h1>
+<p class="lead">Follow these steps on your Windows 10 or 11 PC. It takes about five minutes. After you pay, the download starts by itself.</p>
+<ol class="how">
+<li><h2>Create your account and pay</h2><p>On the <a href="#pricing">pricing page</a>, click <b>Buy now</b> and create an account with your email and a password. Open the confirmation link we email you, then pay with Razorpay. Use the <b>same email</b> at payment as your account email, so we can match your payment.</p></li>
+<li><h2>Wait for the download</h2><p>As soon as your payment is confirmed, your browser starts downloading <b>KinetixisMM.exe</b>. You will see it appear in your browser’s download list. If your browser asks whether to keep the file, choose <b>Keep</b>.</p><figure><img src="howto-1-download.png" width="693" height="116" alt="Browser download notice showing KinetixisMM.exe from kinetixis.com" loading="lazy"></figure><p class="mut">The download did not start? Go to kinetixis.com, sign in, and press <b>Download the app</b>.</p></li>
+<li><h2>Open the downloaded file</h2><p>Click the downloaded file in your browser, or open your <b>Downloads</b> folder and double-click <b>KinetixisMM.exe</b>.</p></li>
+<li><h2>If Windows says “Windows protected your PC”, click “More info”</h2><p>Windows shows this blue screen for any new app that is not yet widely downloaded. It is not an error. Click the <b>More info</b> link, not the “Don’t run” button.</p><figure><img src="howto-2-more-info.png" width="535" height="501" alt="Windows protected your PC screen with the More info link" loading="lazy"></figure></li>
+<li><h2>Click “Run anyway”</h2><p>A new button appears. The publisher shows as “Unknown publisher” because we have not yet bought a Windows code-signing certificate. Only run the file if you downloaded it from kinetixis.com. Then click <b>Run anyway</b>.</p><figure><img src="howto-3-run-anyway.png" width="535" height="500" alt="Windows SmartScreen screen showing KinetixisMM.exe with the Run anyway button" loading="lazy"></figure></li>
+<li><h2>Sign in</h2><p>Enter the <b>email and password of your KinetixisMM account</b>, the same ones you made on this website. Press <b>Show</b> to check your password as you type. Leave “Keep me signed in on this computer” ticked if you do not want to sign in every time. Then press <b>Sign in</b>.</p><figure><img src="howto-4-sign-in.png" width="581" height="644" alt="KinetixisMM sign-in window with email, password and Sign in button" loading="lazy"></figure><p class="mut">Your models and files never leave your computer. Signing in only checks your account.</p></li>
+<li><h2>Start merging</h2><p>When the main window opens and the bottom of the window says <b>Ready.</b>, the app is set up. To merge two models:</p><ol class="sub"><li>Stay on the <b>Merge</b> tab at the top.</li><li>Under <b>Model A</b>, press <b>Choose file(s)…</b> and select your first model. Do the same for <b>Model B</b>. Model B must have the same architecture and size as Model A.</li><li>Pick a <b>Method</b> and use the slider to set how much of each model to keep.</li><li>Press <b>Check compatibility</b>, then <b>Merge models</b>.</li></ol><figure><img src="howto-5-merge.png" width="837" height="747" alt="KinetixisMM main window with Model A, Model B, Method and the Merge models button" loading="lazy"></figure></li>
+</ol>
+<h2>Something went wrong?</h2>
+<ul>
+<li><b>I can’t find “Run anyway”.</b> Click <b>More info</b> on the blue screen first. The button only appears after that.</li>
+<li><b>The download did not start.</b> Sign in at kinetixis.com and press <b>Download the app</b>. If the button says Buy, your payment is not yet linked to your account email.</li>
+<li><b>The app will not sign in.</b> Use the email and password from the website. Press <b>Forgot password?</b> if you do not remember it.</li>
+<li><b>The app says the engine could not start.</b> Email <a href="mailto:arjan@kinetixis.com">arjan@kinetixis.com</a> and attach the file <b>KinetixisMM_error.log</b> that the app saves next to the .exe.</li>
+</ul>
+<p>Next: <a href="#merging">how to use the merge tool</a>. More help: the <a href="#guide">user guide</a> or <a href="#support">contact support</a>.</p>
+<p><a class="btn buy" href="#pricing">Buy ₹1,299</a></p></section>
+
+<section id="p-merging" data-t="How to use the merge tool" hidden><h1>How to use the KinetixisMM merge tool</h1>
+<p class="lead">A guide to every tab and every method in the app: what it does, and when to use it. If you have not installed the app yet, start with <a href="#howto">how to download and install</a>.</p>
+<div class="jump" role="navigation" aria-label="On this page"><button type="button" data-jump="t-basics">The basics</button><button type="button" data-jump="t-merge">Merge</button><button type="button" data-jump="t-methods">All methods</button><button type="button" data-jump="t-pick">Pick best</button><button type="button" data-jump="t-stack">Stack layers</button><button type="button" data-jump="t-lora">LoRA</button><button type="button" data-jump="t-convert">Convert</button><button type="button" data-jump="t-adv">Advanced options</button><button type="button" data-jump="t-tips">Tips</button></div>
+
+<h2 id="t-basics">The basics</h2>
+<p>Merging combines models that are already trained into one new model, so you can mix their strengths without training anything. KinetixisMM runs on your computer, and your models and files never leave it. At the top of the window there are five tabs: <b>Merge</b>, <b>Pick best</b>, <b>Stack layers</b>, <b>LoRA</b> and <b>Convert</b>. Each one does a different job.</p>
+<h3>Words you will see</h3>
+<ul>
+<li><b>Model file.</b> Pick <code>.safetensors</code>, <code>.pt</code>, <code>.pth</code>, <code>.bin</code> or <code>.ckpt</code> files. If a model is split into several parts (shards), select all the parts, or just one.</li>
+<li><b>Same architecture and size.</b> To merge two models, Model B must be built the same way and be the same size as Model A. A model with 7 billion parameters cannot be merged with one that has 13 billion.</li>
+<li><b>Fine-tune.</b> A model that was trained further from an original model.</li>
+<li><b>Base model.</b> The original model that your fine-tunes started from. Some methods need it. When a method needs it, a <b>Base model</b> box appears.</li>
+</ul>
+<h3>The three buttons at the bottom</h3>
+<ul>
+<li><b>Check compatibility.</b> Tests whether your models can be merged and estimates the size of the result. It says “Compatible – ready to merge.” when all is well. Always press it first.</li>
+<li><b>Analyze models.</b> Studies your models and saves a report with suggestions you can read in your browser.</li>
+<li><b>Merge models.</b> Starts the job. A progress bar shows how far it is, and you can press the button again to cancel. When it finishes, the result is saved next to Model A with a name like <code>merged_model.safetensors</code>. If Model A is inside a model folder (one with a <code>config.json</code>), a new <code>merged_model</code> folder is created beside it. Your original files are not changed.</li>
+</ul>
+
+<h2 id="t-merge">Merge tab: blend two or more models</h2>
+<p>This is the main tab. It blends two or more models into one. Choose your models, pick a method, and press <b>Merge models</b>.</p>
+<figure><img src="tool-2-merge.png" width="856" height="742" alt="KinetixisMM Merge tab with Model A, Model B, optional Model C, the Method list and the A/B slider" loading="lazy"><figcaption>The Merge tab.</figcaption></figure>
+<ol class="sub"><li>Under <b>Model A</b> and <b>Model B</b>, press <b>Choose file(s)…</b>. <b>Model C</b> is optional and only works with methods that accept more than two models. <b>Clear</b> removes a choice.</li>
+<li>Pick a <b>Method</b>. A short explanation appears under it, and the sliders change to fit the method.</li>
+<li>Set the slider. For most methods, <b>Model A ⟷ Model B</b> sets the mix, for example 50% A / 50% B.</li>
+<li>Press <b>Check compatibility</b>, then <b>Merge models</b>.</li></ol>
+
+<h2 id="t-methods">The merge methods</h2>
+<p>Open the <b>Method</b> list to see them all. If you are not sure, start with <b>Average (linear)</b> at 50%, and try SLERP after.</p>
+<figure><img src="tool-0-methods.png" width="166" height="480" alt="The Method list in KinetixisMM showing all merge methods from Average (linear) to Arcee Fusion" loading="lazy"><figcaption>The Method list.</figcaption></figure>
+<h3>Quick chooser</h3>
+<table class="pick"><thead><tr><th>I want to…</th><th>Go to</th></tr></thead><tbody>
+<tr><td>Blend two models and see what happens</td><td>Merge tab, <b>Average (linear)</b> or <b>SLERP</b></td></tr>
+<tr><td>Combine the skills of several fine-tunes of one base model</td><td>Merge tab, <b>Task arithmetic</b>, <b>TIES</b>, <b>DARE</b> or <b>DELLA</b> (add the base model)</td></tr>
+<tr><td>Combine three or more models</td><td>Merge tab, <b>Average</b>, <b>Multi-SLERP</b> or <b>Karcher mean</b></td></tr>
+<tr><td>Keep Model A and only add a little of Model B</td><td>Merge tab, <b>Nearswap</b> or <b>Arcee Fusion</b></td></tr>
+<tr><td>Take, for each part, whichever model does better on my own examples</td><td><b>Pick best</b> tab</td></tr>
+<tr><td>Build a model from layer ranges of other models</td><td><b>Stack layers</b> tab</td></tr>
+<tr><td>Put a LoRA adapter into a model, or make a LoRA from a fine-tune</td><td><b>LoRA</b> tab</td></tr>
+<tr><td>Change a model’s file type or make it smaller</td><td><b>Convert</b> tab</td></tr>
+</tbody></table>
+<h3>Methods that do not need a base model</h3>
+<p>These blend the models directly. Just choose Model A and Model B (and C if the method allows).</p>
+<div class="mgrid"><article class="mth"><h4>Average (linear) <span class="tag">2 or more models</span></h4><p><b>What it does:</b> Mixes the models layer by layer, like a straight blend. With three models they are averaged equally.</p><p><b>Use it when:</b> this is your first try, or you just want a simple, reliable blend of models from the same family.</p><p><b>Settings:</b> the slider sets how much of each model to keep, for example 50% A / 50% B.</p></article><article class="mth"><h4>SLERP <span class="tag">exactly 2 models</span></h4><p><b>What it does:</b> Blends along a curve instead of a straight line, which keeps the overall size of the weights.</p><p><b>Use it when:</b> you have two models and the plain average gives a result that feels weaker or watered down.</p><p><b>Settings:</b> the same A/B slider.</p></article><article class="mth"><h4>NuSLERP <span class="tag">exactly 2 models</span></h4><p><b>What it does:</b> SLERP with extra options (row or column-wise blending). If you add a base model, it blends the models’ <i>changes</i> from that base instead.</p><p><b>Use it when:</b> you want finer control than SLERP. The extra choices are in <b>Show advanced options</b>.</p><p><b>Settings:</b> the A/B slider, plus NuSLERP check boxes in advanced options.</p></article><article class="mth"><h4>Multi-SLERP <span class="tag">2 or more models</span></h4><p><b>What it does:</b> A spherical average of two or more models. A base model is optional; if you give one, it works on the changes.</p><p><b>Use it when:</b> you have three or more models to combine in one go.</p></article><article class="mth"><h4>Karcher mean <span class="tag">2 or more models</span></h4><p><b>What it does:</b> The geometric (Karcher) mean of two or more models. It is a more robust kind of average.</p><p><b>Use it when:</b> your models are far apart from each other and a plain average works badly.</p></article><article class="mth"><h4>Nearswap <span class="tag">exactly 2 models</span></h4><p><b>What it does:</b> Pulls Model B towards Model A, but only where the two are already very close. Model A acts as the base.</p><p><b>Use it when:</b> you want to keep Model A almost as it is and only nudge it slightly towards Model B.</p><p><b>Settings:</b> <b>Similarity threshold</b> (default 0.0001).</p></article><article class="mth"><h4>Arcee Fusion <span class="tag">exactly 2 models</span></h4><p><b>What it does:</b> Merges only the most important differences of Model B into Model A. Model A acts as the base.</p><p><b>Use it when:</b> you want Model A plus just the biggest improvements from Model B.</p><p><b>Settings:</b> <b>Selectivity</b>: higher means fewer changes are taken.</p></article></div>
+<h3>Methods that need a base model</h3>
+<p>These work on <i>changes</i>: how far each fine-tune moved away from the model it started from. Add that original model in the <b>Base model</b> box. These methods work best when all your models were fine-tuned from that same base.</p>
+<div class="mgrid"><article class="mth"><h4>Task arithmetic <span class="tag">needs base model</span></h4><p><b>What it does:</b> Adds the fine-tuning changes of your models onto their shared base model. A strength of 0.5 behaves much like an average.</p><p><b>Use it when:</b> you want to combine the skills of several fine-tunes made from the same base, for example one tuned for chat and one for code.</p><p><b>Settings:</b> <b>Strength of changes</b> (0 to 2, default 1.00).</p></article><article class="mth"><h4>TIES <span class="tag">needs base model</span></h4><p><b>What it does:</b> Keeps the biggest changes of each model and settles conflicts where the models push a weight in opposite directions.</p><p><b>Use it when:</b> several fine-tunes interfere with each other when simply added together.</p><p><b>Settings:</b> <b>Changes to keep</b> and <b>Strength of changes</b>.</p></article><article class="mth"><h4>DARE-linear <span class="tag">needs base model</span></h4><p><b>What it does:</b> Randomly drops part of each model’s changes, scales the rest up, then adds them together.</p><p><b>Use it when:</b> you merge several fine-tunes and want to remove redundant changes so they overlap less.</p><p><b>Settings:</b> <b>Changes to keep</b>, <b>Strength of changes</b>.</p></article><article class="mth"><h4>DARE-TIES <span class="tag">needs base model</span></h4><p><b>What it does:</b> DARE’s random dropping combined with TIES conflict resolution.</p><p><b>Use it when:</b> DARE alone still gives clashing results and you want TIES’s conflict handling too.</p><p><b>Settings:</b> <b>Changes to keep</b>, <b>Strength of changes</b>.</p></article><article class="mth"><h4>DELLA <span class="tag">needs base model</span></h4><p><b>What it does:</b> Like DARE, but it drops small changes more often than large ones, then resolves conflicts like TIES.</p><p><b>Use it when:</b> you want DARE-style dropping that protects the more important (larger) changes.</p><p><b>Settings:</b> <b>Changes to keep</b>, <b>Strength of changes</b>, <b>DELLA keep-probability spread</b>.</p></article><article class="mth"><h4>DELLA-linear <span class="tag">needs base model</span></h4><p><b>What it does:</b> DELLA’s size-aware dropping without the TIES conflict step.</p><p><b>Use it when:</b> you like DELLA’s dropping but want a simpler, plain addition afterwards.</p><p><b>Settings:</b> same as DELLA.</p></article><article class="mth"><h4>Breadcrumbs <span class="tag">needs base model</span></h4><p><b>What it does:</b> Removes both the tiniest and the most extreme changes, and keeps the mid-range ones.</p><p><b>Use it when:</b> some of your fine-tunes have a few extreme changes that spoil the merge.</p><p><b>Settings:</b> <b>Changes to keep</b> and <b>Largest changes removed</b>.</p></article><article class="mth"><h4>Breadcrumbs-TIES <span class="tag">needs base model</span></h4><p><b>What it does:</b> Breadcrumbs pruning plus TIES conflict resolution.</p><p><b>Use it when:</b> you want Breadcrumbs’ clean-up and TIES’s conflict handling together.</p><p><b>Settings:</b> same as Breadcrumbs.</p></article><article class="mth"><h4>SCE <span class="tag">needs base model</span></h4><p><b>What it does:</b> Weights each model, layer by layer, by how much it changed. It can optionally keep only the high-variance positions.</p><p><b>Use it when:</b> your fine-tunes change very different amounts in different layers.</p><p><b>Settings:</b> <b>High-variance positions kept</b>.</p></article><article class="mth"><h4>RAM <span class="tag">needs base model</span></h4><p><b>What it does:</b> Made for models trained with reinforcement learning. Changes that only one model made are kept; changes several models share are averaged.</p><p><b>Use it when:</b> you merge reinforcement-learning fine-tunes of the same base.</p><p><b>Settings:</b> <b>Unchanged threshold</b>.</p></article><article class="mth"><h4>RAM+ (tensor-local) <span class="tag">needs base model</span></h4><p><b>What it does:</b> RAM, with extra amplification of the changes that only one model made.</p><p><b>Use it when:</b> RAM keeps too little of each model’s unique changes.</p><p><b>Settings:</b> <b>Unchanged threshold</b>, <b>Rescaling strength</b>, <b>Ratio clamp</b>.</p></article><article class="mth"><h4>Model Stock <span class="tag">needs base model</span></h4><p><b>What it does:</b> Chooses the best mix of the base model and the average of the fine-tunes, using the angle between the fine-tunes.</p><p><b>Use it when:</b> you have exactly two fine-tunes plus their base, and you want the tool to choose the mix for you instead of setting a slider.</p><p><b>Settings:</b> none to set. An advanced option switches it to per-row maths.</p></article></div>
+<p class="mut">The “Settings” lines list the extra sliders that appear for that method. Defaults are a good place to start, and nothing breaks if you try other values.</p>
+
+<h2 id="t-pick">Pick best tab: choose the better model for each part</h2>
+<p>Instead of averaging, this tab <b>tests both models on examples of the skill you care about</b> and takes each part (the embeddings, every layer, and the output) from whichever model does better. No averaging.</p>
+<figure><img src="tool-1-pick-best.png" width="849" height="736" alt="KinetixisMM Pick best tab with Model A, Model B, the task examples file and the number of examples" loading="lazy"><figcaption>The Pick best tab.</figcaption></figure>
+<ol class="sub"><li>Choose the <code>model.safetensors</code> of Model A and Model B. The folder next to each file also needs its <code>config.json</code> and the tokenizer files, and both models need the same folder layout.</li>
+<li>Press <b>Browse…</b> next to <b>Task examples file</b> and choose a <code>.jsonl</code>, <code>.json</code> or <code>.txt</code> file with examples of the skill to test, such as questions and answers from your own subject.</li>
+<li><b>Examples to use</b> sets how many examples are used (64 is the default). A share of them is held back to check the result.</li>
+<li>Press <b>Check compatibility</b>, then <b>Merge models</b>.</li></ol>
+<p><b>Use it when</b> you have two models and one clear job, and you want the best of each for that job. <b>Good to know:</b> Model A is loaded into memory and run, so it needs more memory and is much faster on a GPU. In advanced options, <b>Pick-best detail</b> chooses between <i>Whole layers</i> and <i>Attention and MLP separately</i> (a finer choice). If this mode is not available in your copy of the app, the app tells you.</p>
+
+<h2 id="t-stack">Stack layers tab: build a model from layer ranges</h2>
+<p>This builds a new model from ranges of layers taken from one or more models. It is often called a “frankenmerge”.</p>
+<figure><img src="tool-3-stack.png" width="856" height="743" alt="KinetixisMM Stack layers tab with Layer plan and Embeddings and output from model fields" loading="lazy"><figcaption>The Stack layers tab.</figcaption></figure>
+<ol class="sub"><li>Choose Model A. Models B and C are optional. All models must have the same architecture and size.</li>
+<li>Write a <b>Layer plan</b>. Letters are your models, and the numbers are the layers to use. The end number is <b>not included</b>. For example, <code>A[0:20] B[10:30]</code> takes layers 0 to 19 of Model A, then layers 10 to 29 of Model B, giving a model with 40 layers.</li>
+<li>Join parts with <b>+</b> to blend them, using the slider. <code>A[8:16]+B[8:16]</code> blends those layers of A and B.</li>
+<li><b>Embeddings / output from model</b> says which model supplies the input and output layers. The default is <b>A</b>.</li>
+<li>Press <b>Check compatibility</b>, then <b>Merge models</b>. The result tells you how many layers the new model has.</li></ol>
+<p><b>Use it when</b> you want to experiment: make a deeper model, or take the early layers of one model and the late layers of another. Results can be unpredictable, so test the new model before relying on it.</p>
+
+<h2 id="t-lora">LoRA tab: apply or extract adapters</h2>
+<p>A LoRA adapter is a small file that holds the changes of a fine-tune. This tab works with them in two ways. Pick one in the <b>Action</b> list.</p>
+<figure><img src="tool-5-lora-actions.png" width="239" height="55" alt="The Action list in the LoRA tab: Apply LoRA adapter(s) to a model, and Extract LoRA from a fine-tune" loading="lazy"><figcaption>The Action list.</figcaption></figure>
+<h3>Apply LoRA adapter(s) to a model</h3>
+<figure><img src="tool-4-lora.png" width="852" height="746" alt="KinetixisMM LoRA tab with Base model, LoRA adapter, optional second adapter and Strength of changes" loading="lazy"><figcaption>Applying an adapter.</figcaption></figure>
+<p>This bakes the adapter into a base model, giving one complete model that no longer needs the adapter.</p>
+<ol class="sub"><li><b>Base model</b>: the model you want to change.</li>
+<li><b>LoRA adapter</b>: choose its <code>adapter_model.safetensors</code>. The <code>adapter_config.json</code> in the same folder is read automatically.</li>
+<li><b>Second adapter (optional)</b>: a second <code>adapter_model.safetensors</code> to apply as well.</li>
+<li><b>Strength of changes</b> scales the adapter. 1.00 applies it fully, and lower values apply less of it.</li></ol>
+<p><b>Use it when</b> you have a LoRA and want one standalone model.</p>
+<h3>Extract LoRA from a fine-tune</h3>
+<p>This creates a LoRA adapter that approximates what a fine-tune changed. Choose the <b>fine-tuned model</b> in the first box and its <b>base model</b> in the second box. <b>LoRA rank</b> (default 32) sets the quality: a higher rank is closer to the original but makes a bigger adapter. When it finishes, the app shows how many weight matrices were extracted and the average error. <b>Use it when</b> you want a small file that carries a fine-tune instead of a whole copy of the model.</p>
+
+<h2 id="t-convert">Convert tab: re-save one model</h2>
+<p>This re-saves a single model (Model A only), as a <code>.safetensors</code> file, and can change its precision or scale its weights.</p>
+<figure><img src="tool-6-convert.png" width="844" height="731" alt="KinetixisMM Convert tab with Model A and Scale factor" loading="lazy"><figcaption>The Convert tab.</figcaption></figure>
+<ol class="sub"><li>Choose Model A.</li>
+<li>Leave <b>Scale factor</b> at 1.0 unless you know you want to scale the weights.</li>
+<li>To make the file smaller, open <b>Show advanced options</b> and set <b>Output precision</b> to <i>float16</i> or <i>bfloat16</i>. A float32 model becomes about half the size.</li>
+<li>Press <b>Merge models</b>.</li></ol>
+<p><b>Use it when</b> a model is in <code>.pt</code>, <code>.pth</code>, <code>.bin</code> or <code>.ckpt</code> format and you want <code>.safetensors</code>, or when you want a smaller file.</p>
+
+<h2 id="t-adv">Advanced options</h2>
+<p>Switch on <b>Show advanced options</b> on the Merge tab to see these. You can ignore them at first.</p>
+<ul>
+<li><b>Per-layer blend.</b> Changes the mix from layer to layer. Typing <code>0, 0.5, 1</code> uses Model A in the early layers, a half mix in the middle, and Model B in the late layers. Works with SLERP, NuSLERP and Average.</li>
+<li><b>Output precision.</b> <i>Keep original</i>, <i>float16</i>, <i>bfloat16</i> or <i>float32</i>. Lower precision makes smaller files.</li>
+<li><b>Processor.</b> <i>Automatic</i> uses your GPU if you have one. <i>CPU only</i> forces the CPU.</li>
+<li><b>Keep from Model A</b> and <b>Take from Model B.</b> Type part of a layer name, for example <code>embed|lm_head</code>, to keep those layers from Model A, or copy layers from Model B, without merging them.</li>
+<li><b>Custom rules.</b> One rule per line, to use a different method for different parts of the model. For example <code>mlp=ties:density=0.3;lam=0.8</code> or <code>attn=slerp:t=0.2</code>.</li>
+<li><b>Restore weight sizes after merging.</b> Averaging can shrink the weights a little. This puts their size back.</li>
+<li><b>Skip incompatible layers.</b> Keeps Model A’s version of any layer that cannot be merged, instead of stopping.</li>
+</ul>
+
+<h2 id="t-tips">Tips for good results</h2>
+<ul>
+<li>Always press <b>Check compatibility</b> before a long merge. It also tells you how big the result will be, so you know you have enough disk space.</li>
+<li>Start simple: <b>Average (linear)</b> at 50%, or <b>SLERP</b>. Move on to the methods that need a base model when you have several fine-tunes of one base.</li>
+<li>Test the merged model on your own tasks. If you do not like it, change the slider or the method and merge again. Each merge makes a new file, so earlier results are kept.</li>
+<li>Closing other programs helps with big models. If the app says it ran out of memory, try smaller models.</li>
+<li>Use <b>Analyze models</b> if you are not sure which method suits your models.</li>
+</ul>
+<p>Questions? <a href="#support">Contact support</a> or see the <a href="#guide">user guide</a>.</p>
+<p><a class="btn buy" href="#pricing">Buy ₹1,299</a></p></section>
+
 <section id="p-signin" data-t="Sign in" hidden><h1>Create your account</h1>
 <p class="lead">Sign in or create a KinetixisMM account. You will confirm your email, then pay securely with Razorpay.</p>
 <div class="price authbox"><div class="tabs"><button type="button" class="tab" data-m="signup" aria-pressed="true">Create account</button><button type="button" class="tab" data-m="login" aria-pressed="false">Sign in</button></div>
@@ -245,10 +391,10 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}button[hidden],a
 <section id="p-download" data-t="Download" hidden><h1>Download KinetixisMM</h1>
 <div class="price"><p id="dlmsg" class="lead">Checking your purchase…</p>
 <p><a class="btn" id="dlbtn" href="#download" hidden>Download for Windows</a></p>
-<ol><li>Run the installer you just downloaded.</li><li>Open the app, sign in with the email and password you created here, and wait for “Ready.”</li><li>Follow the <a href="#guide">getting started guide</a>.</li></ol><p class="mut">Windows may show a blue “Windows protected your PC” screen because the app is new. Click <b>More info</b>, then <b>Run anyway</b>.</p><p class="mut">Windows 10 or 11. If the download did not start, press the button. Questions? <a href="#support">Contact support</a>.</p>
+<ol><li>Run the installer you just downloaded.</li><li>Open the app, sign in with the email and password you created here, and wait for “Ready.”</li><li>Learn what every tab and method does in <a href="#merging">how to use the merge tool</a>, or read the <a href="#guide">getting started guide</a>.</li></ol><p class="mut">Windows may show a blue “Windows protected your PC” screen because the app is new. Click <b>More info</b>, then <b>Run anyway</b>. <a href="#howto">See the step-by-step guide with pictures</a>.</p><p class="mut">Windows 10 or 11. If the download did not start, press the button. Questions? <a href="#support">Contact support</a>.</p>
 <p><a href="#" id="logout">Sign out</a></p></div></section>
 </main>
-<footer><div class="w"><a href="#guide">Guide</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#terms">Terms of sale</a><a href="#delivery">Delivery policy</a><a href="#eula">License agreement</a><a href="#licenses">Third-party notices</a>
+<footer><div class="w"><a href="#guide">Guide</a><a href="#howto">How to install</a><a href="#merging">How to merge</a><a href="#support">Support</a><a href="#refund">Refund policy</a><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#terms">Terms of sale</a><a href="#delivery">Delivery policy</a><a href="#eula">License agreement</a><a href="#licenses">Third-party notices</a>
 <p>© 2026 Kinetixis. KinetixisMM is for Windows 10 and 11.</p></div></footer>
 <script>
 const S=[...document.querySelectorAll("main>section")],L=[...document.querySelectorAll("header nav a")];
@@ -313,6 +459,7 @@ async function pageDownload(){const m=$("dlmsg"),b=$("dlbtn");b.hidden=true;
  if(!sessionStorage.getItem("kmm_dl")){try{sessionStorage.setItem("kmm_dl","1")}catch(e){}setTimeout(()=>{location.href=r.url},600)}}
 $("logout").onclick=e=>{e.preventDefault();tok.set(null);isPaid=false;paintBuy();try{sessionStorage.removeItem("kmm_dl")}catch(x){}location.hash="#home"};
 function route(){const h=location.hash.slice(1);if(h==="checkout")pageCheckout();else if(h==="thanks")pageThanks();else if(h==="download")pageDownload();else if(h==="signin")say($("amsg"),"")}
+document.querySelectorAll("[data-jump]").forEach(b=>b.onclick=()=>{const t=$(b.dataset.jump);if(t)t.scrollIntoView({behavior:"smooth",block:"start"})});
 addEventListener("hashchange",route);route();
 let h='<svg viewBox="0 0 360 170" role="img" aria-label="Model A and Model B feed a merged model that takes each layer from whichever model scores better">';
 [["Model A",8,"AAAAAAAA"],["Model B",138,"BBBBBBBB"],["Merged",268,"ABBABAAB"]].forEach(([t,x,p])=>{h+=`<text x="${x}" y="14">${t}</text>`;
